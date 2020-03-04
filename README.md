@@ -9,7 +9,7 @@ The purpose of the NETN COM module is to provide a standard way to exchange data
 
 ## Licence
 
-Copyright (C) 2019 NATO/OTAN.
+Copyright (C) 2020 NATO/OTAN.
 This work is licensed under a [Creative Commons Attribution-NoDerivatives 4.0 International License](LICENCE.md). 
 
 The work includes the [NETN-COM.xml](NETN-COM.xml) FOM Module and documentation NETN-COM.md.
