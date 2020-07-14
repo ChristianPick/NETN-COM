@@ -4,7 +4,7 @@
         <name>NETN-COM</name>
         <type>FOM</type>
         <version>1.0 (Baseline MAR 2020)</version>
-        <modificationDate>2020-03-21</modificationDate>
+        <modificationDate>2020-07-14</modificationDate>
         <securityClassification>Not classified</securityClassification>
         <purpose>Simulation, Training</purpose>
         <applicationDomain></applicationDomain>
@@ -271,11 +271,6 @@ Above license gives you the right to use and redistribute the NETN FOM Module (X
             </objectClass>
         </objectClass>
     </objects>
-    <interactions>
-        <interactionClass>
-            <name>HLAinteractionRoot</name>
-        </interactionClass>
-    </interactions>
     <dimensions/>
     <synchronizations/>
     <transportations/>
@@ -287,30 +282,6 @@ Above license gives you the right to use and redistribute the NETN FOM Module (X
                 <name>TimeMillisecondsFloat32</name>
                 <representation>HLAfloat32BE</representation>
                 <units>Milliseconds (ms)</units>
-                <resolution>NA</resolution>
-                <accuracy>NA</accuracy>
-                <semantics></semantics>
-            </simpleData>
-            <simpleData>
-                <name>Integer16</name>
-                <representation>HLAinteger16BE</representation>
-                <units>NA</units>
-                <resolution>1</resolution>
-                <accuracy>perfect</accuracy>
-                <semantics></semantics>
-            </simpleData>
-            <simpleData>
-                <name>Integer32</name>
-                <representation>HLAinteger32BE</representation>
-                <units>NA</units>
-                <resolution>1</resolution>
-                <accuracy>perfect</accuracy>
-                <semantics></semantics>
-            </simpleData>
-            <simpleData>
-                <name>MeterFloat32</name>
-                <representation>HLAfloat32BE</representation>
-                <units>NA</units>
                 <resolution>NA</resolution>
                 <accuracy>NA</accuracy>
                 <semantics></semantics>
