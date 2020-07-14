@@ -29,16 +29,21 @@ This module is a specification of how to represent Communication Networks in a f
         </poc>
         <poc>
             <pocType>Primary author</pocType>
-            <pocName>Daniel Kallfass</pocName>
-            <pocOrg>Airbus</pocOrg>
+            <pocName>Christian Pick</pocName>
+            <pocOrg>Airbus Defence and Space</pocOrg>
             <pocTelephone></pocTelephone>
-            <pocEmail></pocEmail>
+            <pocEmail>christian.pick@airbus.com</pocEmail>
         </poc>
         <poc>
             <pocType>Contributor</pocType>
             <pocName>MSG-163 Evolution of NATO Standards for Federated Simulation</pocName>
             <pocOrg>NATO Modelling and Simulation Group</pocOrg>
             <pocEmail>msg@cso.nato.int</pocEmail>
+        </poc>
+        <poc>
+            <pocType>Contributor</pocType>
+            <pocName>Daniel Kallfass</pocName>
+            <pocOrg>Airbus Defence and Space</pocOrg>
         </poc>
         <reference>
             <type>Dependency</type>
@@ -54,82 +59,878 @@ Above license gives you the right to use and redistribute the NETN FOM Module (X
         <objectClass>
             <name>HLAobjectRoot</name>
             <objectClass>
-                <name>Communication</name>
+                <name>COM_Root</name>
                 <sharing>Neither</sharing>
-                <semantics>Abstract Class for NETN-Communication Objects</semantics>
+                <semantics></semantics>
                 <objectClass>
-                    <name>CommunicationNetworkStatus</name>
+                    <name>CommunicationNetwork</name>
                     <sharing>PublishSubscribe</sharing>
-                    <semantics>This NetworkConnectivityStatus HLA Object is created and managed during the HLA exercise by a communication manager simulation (service). 
- 
-The NetworkConnectivityStatus holds a list all available connectivity links between sending and receiving entities and the communication status (e.g. available or interrupted connectivity).</semantics>
+                    <semantics>Optional</semantics>
                     <attribute>
                         <name>CommunicationNetworkId</name>
-                        <dataType>UuidArrayOfHLAbyte16</dataType>
+                        <dataType>TextIdentifierArray64</dataType>
                         <updateType>Static</updateType>
-                        <updateCondition>Initial</updateCondition>
+                        <updateCondition>NA</updateCondition>
                         <ownership>NoTransfer</ownership>
-                        <sharing>Neither</sharing>
+                        <sharing>PublishSubscribe</sharing>
                         <transportation>HLAreliable</transportation>
                         <order>Receive</order>
-                        <semantics>Identifies the communicationn network.</semantics>
+                        <semantics>Required</semantics>
                     </attribute>
                     <attribute>
-                        <name>CommunicationConnectivity</name>
-                        <dataType>NetworkConnectivityStructArray</dataType>
-                        <updateType>Conditional</updateType>
-                        <updateCondition>On Change</updateCondition>
-                        <ownership>Divest</ownership>
+                        <name>CommunicationNetworkType</name>
+                        <dataType>CommunicationNetTypeEnum</dataType>
+                        <updateType>Static</updateType>
+                        <updateCondition>NA</updateCondition>
+                        <ownership>NoTransfer</ownership>
                         <sharing>PublishSubscribe</sharing>
-                        <transportation>HLAbestEffort</transportation>
+                        <transportation>HLAreliable</transportation>
                         <order>Receive</order>
-                        <semantics>N/A</semantics>
+                        <semantics>Optional</semantics>
+                    </attribute>
+                    <attribute>
+                        <name>CommunicationServiceType</name>
+                        <dataType>CommunicationServiceTypeEnum</dataType>
+                        <updateType>Static</updateType>
+                        <updateCondition>NA</updateCondition>
+                        <ownership>NoTransfer</ownership>
+                        <sharing>PublishSubscribe</sharing>
+                        <transportation>HLAreliable</transportation>
+                        <order>Receive</order>
+                        <semantics>Required</semantics>
+                    </attribute>
+                </objectClass>
+                <objectClass>
+                    <name>Node</name>
+                    <sharing>PublishSubscribe</sharing>
+                    <semantics></semantics>
+                    <attribute>
+                        <name>OwnerId</name>
+                        <dataType>UuidArrayOfHLAbyte16</dataType>
+                        <updateType>Static</updateType>
+                        <updateCondition>NA</updateCondition>
+                        <ownership>NoTransfer</ownership>
+                        <sharing>PublishSubscribe</sharing>
+                        <transportation>HLAreliable</transportation>
+                        <order>Receive</order>
+                        <semantics></semantics>
+                    </attribute>
+                    <attribute>
+                        <name>NetworkDevices</name>
+                        <dataType>NetworkDeviceArray</dataType>
+                        <updateType>Conditional</updateType>
+                        <updateCondition>OnChange</updateCondition>
+                        <ownership>NoTransfer</ownership>
+                        <sharing>PublishSubscribe</sharing>
+                        <transportation>HLAreliable</transportation>
+                        <order>Receive</order>
+                        <semantics></semantics>
+                    </attribute>
+                    <attribute>
+                        <name>Connections</name>
+                        <dataType>RequestedConnectionArray</dataType>
+                        <updateType>Conditional</updateType>
+                        <updateCondition>OnChange</updateCondition>
+                        <ownership>NoTransfer</ownership>
+                        <sharing>PublishSubscribe</sharing>
+                        <transportation>HLAreliable</transportation>
+                        <order>Receive</order>
+                        <semantics></semantics>
+                    </attribute>
+                </objectClass>
+                <objectClass>
+                    <name>OutgoingConnection</name>
+                    <sharing>PublishSubscribe</sharing>
+                    <semantics></semantics>
+                    <attribute>
+                        <name>ConnectionId</name>
+                        <dataType>UuidArrayOfHLAbyte16</dataType>
+                        <updateType>Static</updateType>
+                        <updateCondition>NA</updateCondition>
+                        <ownership>NoTransfer</ownership>
+                        <sharing>PublishSubscribe</sharing>
+                        <transportation>HLAreliable</transportation>
+                        <order>Receive</order>
+                        <semantics>Required</semantics>
+                    </attribute>
+                    <attribute>
+                        <name>CommunicationNetworkId</name>
+                        <dataType>TextIdentifierArray64</dataType>
+                        <updateType>Static</updateType>
+                        <updateCondition>NA</updateCondition>
+                        <ownership>NoTransfer</ownership>
+                        <sharing>PublishSubscribe</sharing>
+                        <transportation>HLAreliable</transportation>
+                        <order>Receive</order>
+                        <semantics>Required</semantics>
+                    </attribute>
+                    <attribute>
+                        <name>SenderId</name>
+                        <dataType>UuidArrayOfHLAbyte16</dataType>
+                        <updateType>Static</updateType>
+                        <updateCondition>NA</updateCondition>
+                        <ownership>NoTransfer</ownership>
+                        <sharing>PublishSubscribe</sharing>
+                        <transportation>HLAreliable</transportation>
+                        <order>Receive</order>
+                        <semantics>Required</semantics>
+                    </attribute>
+                    <attribute>
+                        <name>Receivers</name>
+                        <dataType>ConnectionReceiverArray</dataType>
+                        <updateType>Conditional</updateType>
+                        <updateCondition>OnChange</updateCondition>
+                        <ownership>NoTransfer</ownership>
+                        <sharing>PublishSubscribe</sharing>
+                        <transportation>HLAreliable</transportation>
+                        <order>Receive</order>
+                        <semantics>Required</semantics>
+                    </attribute>
+                </objectClass>
+                <objectClass>
+                    <name>IncomingConnections</name>
+                    <sharing>PublishSubscribe</sharing>
+                    <semantics></semantics>
+                    <attribute>
+                        <name>ReceiverId</name>
+                        <dataType>UuidArrayOfHLAbyte16</dataType>
+                        <updateType>Static</updateType>
+                        <updateCondition>NA</updateCondition>
+                        <ownership>NoTransfer</ownership>
+                        <sharing>PublishSubscribe</sharing>
+                        <transportation>HLAreliable</transportation>
+                        <order>Receive</order>
+                        <semantics>Required</semantics>
+                    </attribute>
+                    <attribute>
+                        <name>Connections</name>
+                        <dataType>IncomingConnectionArray</dataType>
+                        <updateType>Conditional</updateType>
+                        <updateCondition>OnChange</updateCondition>
+                        <ownership>NoTransfer</ownership>
+                        <sharing>PublishSubscribe</sharing>
+                        <transportation>HLAreliable</transportation>
+                        <order>Receive</order>
+                        <semantics>Required</semantics>
+                    </attribute>
+                </objectClass>
+                <objectClass>
+                    <name>PhysicalNetwork</name>
+                    <sharing>PublishSubscribe</sharing>
+                    <semantics>Optional</semantics>
+                    <attribute>
+                        <name>PhysicalNetworkId</name>
+                        <dataType>HLAASCIIstring</dataType>
+                        <updateType>Static</updateType>
+                        <updateCondition>NA</updateCondition>
+                        <ownership>NoTransfer</ownership>
+                        <sharing>PublishSubscribe</sharing>
+                        <transportation>HLAreliable</transportation>
+                        <order>Receive</order>
+                        <semantics>Required</semantics>
+                    </attribute>
+                    <attribute>
+                        <name>Description</name>
+                        <dataType>PhysicalNetworkDescriptionVariant</dataType>
+                        <updateType>Static</updateType>
+                        <updateCondition>NA</updateCondition>
+                        <ownership>NoTransfer</ownership>
+                        <sharing>PublishSubscribe</sharing>
+                        <transportation>HLAreliable</transportation>
+                        <order>Receive</order>
+                        <semantics>Required</semantics>
+                    </attribute>
+                </objectClass>
+                <objectClass>
+                    <name>LinkStates</name>
+                    <sharing>PublishSubscribe</sharing>
+                    <semantics></semantics>
+                    <attribute>
+                        <name>PhysicalNetworkId</name>
+                        <dataType>HLAASCIIstring</dataType>
+                        <updateType>Static</updateType>
+                        <updateCondition>NA</updateCondition>
+                        <ownership>NoTransfer</ownership>
+                        <sharing>PublishSubscribe</sharing>
+                        <transportation>HLAreliable</transportation>
+                        <order>Receive</order>
+                        <semantics></semantics>
+                    </attribute>
+                    <attribute>
+                        <name>Links</name>
+                        <dataType>LinkStatusArray</dataType>
+                        <updateType>Conditional</updateType>
+                        <updateCondition>OnChange</updateCondition>
+                        <ownership>NoTransfer</ownership>
+                        <sharing>PublishSubscribe</sharing>
+                        <transportation>HLAreliable</transportation>
+                        <order>Receive</order>
+                        <semantics></semantics>
                     </attribute>
                 </objectClass>
             </objectClass>
         </objectClass>
     </objects>
+    <interactions>
+        <interactionClass>
+            <name>HLAinteractionRoot</name>
+        </interactionClass>
+    </interactions>
     <dimensions/>
     <synchronizations/>
     <transportations/>
     <updateRates/>
     <dataTypes>
         <basicDataRepresentations/>
-        <simpleDataTypes/>
-        <enumeratedDataTypes/>
+        <simpleDataTypes>
+            <simpleData>
+                <name>TimeMillisecondsFloat32</name>
+                <representation>HLAfloat32BE</representation>
+                <units>Milliseconds (ms)</units>
+                <resolution>NA</resolution>
+                <accuracy>NA</accuracy>
+                <semantics></semantics>
+            </simpleData>
+            <simpleData>
+                <name>Integer16</name>
+                <representation>HLAinteger16BE</representation>
+                <units>NA</units>
+                <resolution>1</resolution>
+                <accuracy>perfect</accuracy>
+                <semantics></semantics>
+            </simpleData>
+            <simpleData>
+                <name>Integer32</name>
+                <representation>HLAinteger32BE</representation>
+                <units>NA</units>
+                <resolution>1</resolution>
+                <accuracy>perfect</accuracy>
+                <semantics></semantics>
+            </simpleData>
+            <simpleData>
+                <name>MeterFloat32</name>
+                <representation>HLAfloat32BE</representation>
+                <units>NA</units>
+                <resolution>NA</resolution>
+                <accuracy>NA</accuracy>
+                <semantics></semantics>
+            </simpleData>
+            <simpleData>
+                <name>BitsPerSecond</name>
+                <representation>HLAinteger64BE</representation>
+                <units>NA</units>
+                <resolution>1</resolution>
+                <accuracy>perfect</accuracy>
+                <semantics></semantics>
+            </simpleData>
+        </simpleDataTypes>
+        <enumeratedDataTypes>
+            <enumeratedData>
+                <name>NetworkTypeEnum</name>
+                <representation>HLAoctet</representation>
+                <semantics></semantics>
+                <enumerator>
+                    <name>NoNetwork</name>
+                    <value>0</value>
+                </enumerator>
+                <enumerator>
+                    <name>Generic</name>
+                    <value>1</value>
+                </enumerator>
+                <enumerator>
+                    <name>Radio</name>
+                    <value>2</value>
+                </enumerator>
+                <enumerator>
+                    <name>Cable</name>
+                    <value>3</value>
+                </enumerator>
+                <enumerator>
+                    <name>Laser</name>
+                    <value>4</value>
+                </enumerator>
+                <enumerator>
+                    <name>Sound</name>
+                    <value>5</value>
+                </enumerator>
+            </enumeratedData>
+            <enumeratedData>
+                <name>CommunicationNetTypeEnum</name>
+                <representation>HLAoctet</representation>
+                <semantics></semantics>
+                <enumerator>
+                    <name>OTHER</name>
+                    <value>0</value>
+                </enumerator>
+                <enumerator>
+                    <name>COMMAND_NET</name>
+                    <value>1</value>
+                </enumerator>
+                <enumerator>
+                    <name>OPERATIONS_INTELLIGENCE_NET</name>
+                    <value>2</value>
+                </enumerator>
+                <enumerator>
+                    <name>ADMIN_LOGISTICS_NET</name>
+                    <value>3</value>
+                </enumerator>
+                <enumerator>
+                    <name>FIRE_SUPPORT_NET</name>
+                    <value>4</value>
+                </enumerator>
+            </enumeratedData>
+            <enumeratedData>
+                <name>CommunicationServiceTypeEnum</name>
+                <representation>HLAoctet</representation>
+                <semantics></semantics>
+                <enumerator>
+                    <name>DATTRF</name>
+                    <value notes="netn-com_3">0</value>
+                </enumerator>
+                <enumerator>
+                    <name>FAX</name>
+                    <value notes="netn-com_4">1</value>
+                </enumerator>
+                <enumerator>
+                    <name>IIF</name>
+                    <value notes="netn-com_5">2</value>
+                </enumerator>
+                <enumerator>
+                    <name>IMAGE</name>
+                    <value notes="netn-com_6">3</value>
+                </enumerator>
+                <enumerator>
+                    <name>MCI</name>
+                    <value notes="netn-com_7">4</value>
+                </enumerator>
+                <enumerator>
+                    <name>MHS</name>
+                    <value notes="netn-com_8">5</value>
+                </enumerator>
+                <enumerator>
+                    <name>TDL</name>
+                    <value notes="netn-com_9">6</value>
+                </enumerator>
+                <enumerator>
+                    <name>VIDSVC</name>
+                    <value notes="netn-com_10">7</value>
+                </enumerator>
+                <enumerator>
+                    <name>VOCSVC</name>
+                    <value notes="netn-com_11">8</value>
+                </enumerator>
+                <enumerator>
+                    <name>NOS</name>
+                    <value notes="netn-com_12">9</value>
+                </enumerator>
+            </enumeratedData>
+            <enumeratedData>
+                <name>RequestConnectionTypeEnum</name>
+                <representation>HLAoctet</representation>
+                <semantics></semantics>
+                <enumerator>
+                    <name>BroadcastTransceiver</name>
+                    <value>0</value>
+                </enumerator>
+                <enumerator>
+                    <name>BroadcastTransmitter</name>
+                    <value>1</value>
+                </enumerator>
+                <enumerator>
+                    <name>BroadcastReceiver</name>
+                    <value>2</value>
+                </enumerator>
+                <enumerator>
+                    <name>PeerToPeer</name>
+                    <value>3</value>
+                </enumerator>
+                <enumerator>
+                    <name>Unidirectional</name>
+                    <value>4</value>
+                </enumerator>
+                <enumerator>
+                    <name>Multicast</name>
+                    <value>5</value>
+                </enumerator>
+                <enumerator>
+                    <name>Intercept</name>
+                    <value>6</value>
+                </enumerator>
+            </enumeratedData>
+        </enumeratedDataTypes>
         <arrayDataTypes>
             <arrayData>
-                <name>NetworkConnectivityStructArray</name>
-                <dataType>NetworkConnectivityStruct</dataType>
+                <name>LinkStatusArray</name>
+                <dataType>LinkStatusStruct</dataType>
                 <cardinality>Dynamic</cardinality>
                 <encoding>HLAvariableArray</encoding>
-                <semantics>N/A</semantics>
+                <semantics></semantics>
+            </arrayData>
+            <arrayData>
+                <name>NetworkDeviceArray</name>
+                <dataType>NetworkDeviceStruct</dataType>
+                <cardinality>Dynamic</cardinality>
+                <encoding>HLAvariableArray</encoding>
+                <semantics></semantics>
+            </arrayData>
+            <arrayData>
+                <name>RequestedConnectionArray</name>
+                <dataType>RequestedConnection</dataType>
+                <cardinality>Dynamic</cardinality>
+                <encoding>HLAvariableArray</encoding>
+                <semantics></semantics>
+            </arrayData>
+            <arrayData>
+                <name>TextIdentifierArray64Array</name>
+                <dataType>TextIdentifierArray64</dataType>
+                <cardinality>Dynamic</cardinality>
+                <encoding>HLAvariableArray</encoding>
+                <semantics></semantics>
+            </arrayData>
+            <arrayData>
+                <name>UuidArray</name>
+                <dataType>UuidArrayOfHLAbyte16</dataType>
+                <cardinality>Dynamic</cardinality>
+                <encoding>HLAvariableArray</encoding>
+                <semantics></semantics>
+            </arrayData>
+            <arrayData>
+                <name>TextIdentifierArray64</name>
+                <dataType>HLAASCIIchar</dataType>
+                <cardinality>[0..64]</cardinality>
+                <encoding>HLAvariableArray</encoding>
+                <semantics></semantics>
+            </arrayData>
+            <arrayData>
+                <name>ConnectionReceiverArray</name>
+                <dataType>ConnectionReceiverStruct</dataType>
+                <cardinality>Dynamic</cardinality>
+                <encoding>HLAvariableArray</encoding>
+                <semantics></semantics>
+            </arrayData>
+            <arrayData>
+                <name>IncomingConnectionArray</name>
+                <dataType>IncomingConnectionStruct</dataType>
+                <cardinality>Dynamic</cardinality>
+                <encoding>HLAvariableArray</encoding>
+                <semantics>Required</semantics>
             </arrayData>
         </arrayDataTypes>
         <fixedRecordDataTypes>
             <fixedRecordData>
-                <name>NetworkConnectivityStruct</name>
+                <name>LinkStatusStruct</name>
                 <encoding>HLAfixedRecord</encoding>
-                <semantics>Describes the connectivity status between a sender and a receiver entity. 
-The state of this communication link is decribed in percentage of the probability of having a connection: 0% if there is no connectivity. 100% if there is maximum connectivity available.</semantics>
+                <semantics></semantics>
                 <field>
-                    <name>Sender</name>
+                    <name>TransmitterDeviceId</name>
                     <dataType>UuidArrayOfHLAbyte16</dataType>
-                    <semantics>Uniquie Id of the sending entity/unit</semantics>
+                    <semantics>Required</semantics>
                 </field>
                 <field>
-                    <name>Receiver</name>
+                    <name>ReceiverDeviceId</name>
                     <dataType>UuidArrayOfHLAbyte16</dataType>
-                    <semantics>Unique Id of the receiving entity/unit</semantics>
+                    <semantics>Required</semantics>
                 </field>
                 <field>
-                    <name>NetworkState</name>
-                    <dataType>PercentFloat32</dataType>
-                    <semantics>Percentage decribing the probability of having a connection: 0% if there is no connectivity. 100% if there is maximum connectivity available.</semantics>
+                    <name>Latency</name>
+                    <dataType>TimeMillisecondsFloat32</dataType>
+                    <semantics></semantics>
+                </field>
+                <field>
+                    <name>Bandwidth</name>
+                    <dataType>BitsPerSecond</dataType>
+                    <semantics></semantics>
+                </field>
+                <field>
+                    <name>Reliability</name>
+                    <dataType>PercentFloat64</dataType>
+                    <semantics>Required</semantics>
+                </field>
+                <field>
+                    <name>IsBidirectional</name>
+                    <dataType>HLAboolean</dataType>
+                    <semantics>Optional, default is false</semantics>
                 </field>
             </fixedRecordData>
+            <fixedRecordData>
+                <name>NetworkDeviceStruct</name>
+                <encoding>HLAfixedRecord</encoding>
+                <semantics>Describes the type and capability of a network device. Each device must have at least a transmitter (TX) or receiver (RX). Transceivers should define both.</semantics>
+                <field>
+                    <name>NetworkDeviceId</name>
+                    <dataType>UuidArrayOfHLAbyte16</dataType>
+                    <semantics>Required</semantics>
+                </field>
+                <field notes="netn-com_1">
+                    <name>CommunicationNetworkIds</name>
+                    <dataType>TextIdentifierArray64Array</dataType>
+                    <semantics>Required</semantics>
+                </field>
+                <field>
+                    <name>PhysicalNetworkId</name>
+                    <dataType>HLAASCIIstring</dataType>
+                    <semantics>Optional</semantics>
+                </field>
+                <field>
+                    <name>TX</name>
+                    <dataType>NetworkDeviceTransmitterCharacteristicsVariant</dataType>
+                    <semantics>Optional</semantics>
+                </field>
+                <field>
+                    <name>RX</name>
+                    <dataType>NetworkDeviceReceiverCharacteristicsVariant</dataType>
+                    <semantics>Optional</semantics>
+                </field>
+                <field>
+                    <name>IsRelay</name>
+                    <dataType>HLAboolean</dataType>
+                    <semantics>Optional, defaults to true</semantics>
+                </field>
+            </fixedRecordData>
+            <fixedRecordData>
+                <name>PhysicalGenericNetworkStruct</name>
+                <encoding>HLAfixedRecord</encoding>
+                <semantics></semantics>
+                <field>
+                    <name>MaxHopCount</name>
+                    <dataType>Integer32</dataType>
+                    <semantics></semantics>
+                </field>
+                <field>
+                    <name>DefaultMaxLinkRange</name>
+                    <dataType>MeterFloat32</dataType>
+                    <semantics></semantics>
+                </field>
+                <field>
+                    <name>Latency</name>
+                    <dataType>TimeMillisecondsFloat32</dataType>
+                    <semantics></semantics>
+                </field>
+                <field>
+                    <name>Bandwidth</name>
+                    <dataType>BitsPerSecond</dataType>
+                    <semantics></semantics>
+                </field>
+                <field>
+                    <name>Reliability</name>
+                    <dataType>PercentFloat64</dataType>
+                    <semantics></semantics>
+                </field>
+            </fixedRecordData>
+            <fixedRecordData>
+                <name>PhysicalRadioNetworkStruct</name>
+                <encoding>HLAfixedRecord</encoding>
+                <semantics></semantics>
+            </fixedRecordData>
+            <fixedRecordData>
+                <name>PhysicalCableNetworkStruct</name>
+                <encoding>HLAfixedRecord</encoding>
+                <semantics></semantics>
+                <field>
+                    <name>TTL</name>
+                    <dataType>Integer16</dataType>
+                    <semantics></semantics>
+                </field>
+            </fixedRecordData>
+            <fixedRecordData>
+                <name>PhysicalSoundNetworkStruct</name>
+                <encoding>HLAfixedRecord</encoding>
+                <semantics></semantics>
+            </fixedRecordData>
+            <fixedRecordData>
+                <name>PhysicalLaserNetworkStruct</name>
+                <encoding>HLAfixedRecord</encoding>
+                <semantics></semantics>
+            </fixedRecordData>
+            <fixedRecordData>
+                <name>RequestedConnection</name>
+                <encoding>HLAfixedRecord</encoding>
+                <semantics></semantics>
+                <field>
+                    <name>CommunicationNetworkId</name>
+                    <dataType>TextIdentifierArray64</dataType>
+                    <semantics>Required</semantics>
+                </field>
+                <field>
+                    <name>RequestedConnectionType</name>
+                    <dataType>RequestConnectionTypeEnum</dataType>
+                    <semantics>Required</semantics>
+                </field>
+                <field>
+                    <name>ConnectionId</name>
+                    <dataType>UuidArrayOfHLAbyte16</dataType>
+                    <semantics>Optional</semantics>
+                </field>
+                <field notes="netn-com_14">
+                    <name>DestinationEntitytIds</name>
+                    <dataType>UuidArray</dataType>
+                    <semantics>Optional</semantics>
+                </field>
+                <field notes="netn-com_15">
+                    <name>NetworkDeviceId</name>
+                    <dataType>UuidArrayOfHLAbyte16</dataType>
+                    <semantics>Optional</semantics>
+                </field>
+            </fixedRecordData>
+            <fixedRecordData>
+                <name>ConnectionReceiverStruct</name>
+                <encoding>HLAfixedRecord</encoding>
+                <semantics></semantics>
+                <field>
+                    <name>ReceiverId</name>
+                    <dataType>UuidArrayOfHLAbyte16</dataType>
+                    <semantics>Required</semantics>
+                </field>
+                <field>
+                    <name>Latency</name>
+                    <dataType>TimeMillisecondsFloat32</dataType>
+                    <semantics>Required</semantics>
+                </field>
+                <field>
+                    <name>Bandwith</name>
+                    <dataType>BitsPerSecond</dataType>
+                    <semantics>Required</semantics>
+                </field>
+                <field>
+                    <name>Reliability</name>
+                    <dataType>PercentFloat64</dataType>
+                    <semantics>Required</semantics>
+                </field>
+                <field>
+                    <name>HopCount</name>
+                    <dataType>Integer16</dataType>
+                    <semantics>Optional, defaults to 0 (=not specified)</semantics>
+                </field>
+            </fixedRecordData>
+            <fixedRecordData>
+                <name>NetworkDeviceGenericTransmitterCharacteristicsStruct</name>
+                <encoding>HLAfixedRecord</encoding>
+                <semantics></semantics>
+                <field>
+                    <name>MaxLinkRange</name>
+                    <dataType>MeterFloat32</dataType>
+                    <semantics>Optional, defaults to 0 (=use default value from physical network)</semantics>
+                </field>
+            </fixedRecordData>
+            <fixedRecordData>
+                <name>IncomingConnectionStruct</name>
+                <encoding>HLAfixedRecord</encoding>
+                <semantics></semantics>
+                <field>
+                    <name>CommunicationNetworkId</name>
+                    <dataType>TextIdentifierArray64</dataType>
+                    <semantics>Required</semantics>
+                </field>
+                <field>
+                    <name>Latency</name>
+                    <dataType>TimeMillisecondsFloat32</dataType>
+                    <semantics></semantics>
+                </field>
+                <field>
+                    <name>Bandwidth</name>
+                    <dataType>BitsPerSecond</dataType>
+                    <semantics></semantics>
+                </field>
+                <field>
+                    <name>Reliability</name>
+                    <dataType>PercentFloat64</dataType>
+                    <semantics></semantics>
+                </field>
+                <field>
+                    <name>HopCount</name>
+                    <dataType>Integer16</dataType>
+                    <semantics></semantics>
+                </field>
+                <field>
+                    <name>SenderId</name>
+                    <dataType>UuidArrayOfHLAbyte16</dataType>
+                    <semantics>Required</semantics>
+                </field>
+            </fixedRecordData>
+            <fixedRecordData>
+                <name>NetworkDeviceEmptyCharactersticsStruct</name>
+                <encoding>HLAfixedRecord</encoding>
+                <semantics></semantics>
+            </fixedRecordData>
         </fixedRecordDataTypes>
-        <variantRecordDataTypes/>
+        <variantRecordDataTypes>
+            <variantRecordData>
+                <name>NetworkDeviceTransmitterCharacteristicsVariant</name>
+                <discriminant>Type</discriminant>
+                <dataType>NetworkTypeEnum</dataType>
+                <alternative>
+                    <enumerator>NoNetwork</enumerator>
+                    <name>NoNetwork</name>
+                    <dataType>NetworkDeviceEmptyCharactersticsStruct</dataType>
+                    <semantics></semantics>
+                </alternative>
+                <alternative>
+                    <enumerator>Generic</enumerator>
+                    <name>Generic</name>
+                    <dataType>NetworkDeviceGenericTransmitterCharacteristicsStruct</dataType>
+                    <semantics></semantics>
+                </alternative>
+                <alternative>
+                    <enumerator>Radio</enumerator>
+                    <name>Radio</name>
+                    <dataType>NetworkDeviceEmptyCharactersticsStruct</dataType>
+                    <semantics></semantics>
+                </alternative>
+                <alternative>
+                    <enumerator>Cable</enumerator>
+                    <name>Cable</name>
+                    <dataType>NetworkDeviceEmptyCharactersticsStruct</dataType>
+                    <semantics></semantics>
+                </alternative>
+                <alternative>
+                    <enumerator>Laser</enumerator>
+                    <name>Laser</name>
+                    <dataType>NetworkDeviceEmptyCharactersticsStruct</dataType>
+                    <semantics></semantics>
+                </alternative>
+                <alternative>
+                    <enumerator>Sound</enumerator>
+                    <name>Sound</name>
+                    <dataType>NetworkDeviceEmptyCharactersticsStruct</dataType>
+                    <semantics></semantics>
+                </alternative>
+                <encoding>HLAvariantRecord</encoding>
+                <semantics></semantics>
+            </variantRecordData>
+            <variantRecordData>
+                <name>NetworkDeviceReceiverCharacteristicsVariant</name>
+                <discriminant>Type</discriminant>
+                <dataType>NetworkTypeEnum</dataType>
+                <alternative>
+                    <enumerator>NoNetwork</enumerator>
+                    <name>NoNetwork</name>
+                    <dataType>NetworkDeviceEmptyCharactersticsStruct</dataType>
+                    <semantics></semantics>
+                </alternative>
+                <alternative>
+                    <enumerator>Generic</enumerator>
+                    <name>Generic</name>
+                    <dataType>NetworkDeviceEmptyCharactersticsStruct</dataType>
+                    <semantics></semantics>
+                </alternative>
+                <alternative>
+                    <enumerator>Radio</enumerator>
+                    <name>Radio</name>
+                    <dataType>NetworkDeviceEmptyCharactersticsStruct</dataType>
+                    <semantics></semantics>
+                </alternative>
+                <alternative>
+                    <enumerator>Cable</enumerator>
+                    <name>Cable</name>
+                    <dataType>NetworkDeviceEmptyCharactersticsStruct</dataType>
+                    <semantics></semantics>
+                </alternative>
+                <alternative>
+                    <enumerator>Laser</enumerator>
+                    <name>Laser</name>
+                    <dataType>NetworkDeviceEmptyCharactersticsStruct</dataType>
+                    <semantics></semantics>
+                </alternative>
+                <alternative>
+                    <enumerator>Sound</enumerator>
+                    <name>Sound</name>
+                    <dataType>NetworkDeviceEmptyCharactersticsStruct</dataType>
+                    <semantics></semantics>
+                </alternative>
+                <encoding>HLAvariantRecord</encoding>
+                <semantics></semantics>
+            </variantRecordData>
+            <variantRecordData>
+                <name>PhysicalNetworkDescriptionVariant</name>
+                <discriminant>Type</discriminant>
+                <dataType>NetworkTypeEnum</dataType>
+                <alternative>
+                    <enumerator>Generic</enumerator>
+                    <name>Generic</name>
+                    <dataType>PhysicalGenericNetworkStruct</dataType>
+                    <semantics></semantics>
+                </alternative>
+                <alternative>
+                    <enumerator>Radio</enumerator>
+                    <name>Radio</name>
+                    <dataType>PhysicalRadioNetworkStruct</dataType>
+                    <semantics></semantics>
+                </alternative>
+                <alternative>
+                    <enumerator>Cable</enumerator>
+                    <name>Cable</name>
+                    <dataType>PhysicalCableNetworkStruct</dataType>
+                    <semantics></semantics>
+                </alternative>
+                <alternative>
+                    <enumerator>Laser</enumerator>
+                    <name>Laser</name>
+                    <dataType>PhysicalLaserNetworkStruct</dataType>
+                    <semantics></semantics>
+                </alternative>
+                <alternative>
+                    <enumerator>Sound</enumerator>
+                    <name>Sound</name>
+                    <dataType>PhysicalSoundNetworkStruct</dataType>
+                    <semantics></semantics>
+                </alternative>
+                <encoding>HLAvariantRecord</encoding>
+                <semantics></semantics>
+            </variantRecordData>
+        </variantRecordDataTypes>
     </dataTypes>
-    <notes/>
+    <notes>
+        <note>
+            <label>netn-com_1</label>
+            <semantics>In case no network name is given and the device is an intercepter it will intercept all transmissions to all networks of the physical network.</semantics>
+        </note>
+        <note>
+            <label>netn-com_3</label>
+            <semantics>Data transfer</semantics>
+        </note>
+        <note>
+            <label>netn-com_4</label>
+            <semantics>Facsimile</semantics>
+        </note>
+        <note>
+            <label>netn-com_5</label>
+            <semantics>Identify Friend or Foe</semantics>
+        </note>
+        <note>
+            <label>netn-com_6</label>
+            <semantics>Image</semantics>
+        </note>
+        <note>
+            <label>netn-com_7</label>
+            <semantics>Multilateral Interoperability Programme (MIP) Common Interface Service</semantics>
+        </note>
+        <note>
+            <label>netn-com_8</label>
+            <semantics>Message Handling Service</semantics>
+        </note>
+        <note>
+            <label>netn-com_9</label>
+            <semantics>Tactical Data Link</semantics>
+        </note>
+        <note>
+            <label>netn-com_10</label>
+            <semantics>Video Service</semantics>
+        </note>
+        <note>
+            <label>netn-com_11</label>
+            <semantics>Voice Service</semantics>
+        </note>
+        <note>
+            <label>netn-com_12</label>
+            <semantics>Not Otherwise Specified</semantics>
+        </note>
+        <note>
+            <label>netn-com_14</label>
+            <semantics>Defines the destination units of the communication in case of peer-to-peer connections. If multiple receivers are specified it is assumed that messages will be sent sequentially to all recipients. Leave empty in broadcast / multicast cases.</semantics>
+        </note>
+        <note>
+            <label>netn-com_15</label>
+            <semantics>Specifies which device of the Node should be used for the connection. The device must be bound to the communication network.  If not set a suitable device is selected automaticly.</semantics>
+        </note>
+    </notes>
 </objectModel>
