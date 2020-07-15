@@ -34,7 +34,14 @@ As the information provided in the link layer must not be used by the applicatio
 Proposal for CAX demo: Use the simplified approach – the physical network objects and link states are not published but all internal data of the communication simulation. Relevant / Used are Nodes (with generic TX/RX using broadcasts) and OutgoingConnections, in case the max hop count should be used and be taken from the physical network additionally PhysicalNetwork could be instantiated.
 
 ### CommunicationNetwork
-The CommunicationNetwork class specifies details about the type of and service used by a logical communication network. This corresponds to the CommunicationNet-Elements of MSDL Units and Equipments. This object has an informational character and should be assumed to be optional. No federate should rely on this data to work with communication networks.
+The CommunicationNetwork class specifies details about the type of and service used by a logical communication network. This corresponds to the CommunicationNet-Elements of MSDL Units and Equipments. 
+Instances of this object class should be considered as optional. No federate should rely on this data to work with communication networks.
+
+|Attribute|Description|
+|---|---|
+|NetworkId|**Required.** Unique identifier for the communication network.|
+|NetworkType|**Optional.** The communication network type of use.|
+|ServiceType|**Optional.** The type of service used on the communication network.|
  
 ### Node
 A Node is the representation of the interface of an entity (Aggregate or PhysicalEntity) to its communication networks. By referring to the entity it is linked to a geographical location. The connection to communication networks (the equivalent to the information provided by MSDL) is described in terms of requested connections. The physical network layer (how the communication is done) is connected by devices.
