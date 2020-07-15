@@ -43,8 +43,17 @@ Instances of this object class should be considered as optional. No federate sho
 |NetworkType|**Optional.** The communication network type of use.|
 |ServiceType|**Optional.** The type of service used on the communication network.|
  
-### Node
-A Node is the representation of the interface of an entity (Aggregate or PhysicalEntity) to its communication networks. By referring to the entity it is linked to a geographical location. The connection to communication networks (the equivalent to the information provided by MSDL) is described in terms of requested connections. The physical network layer (how the communication is done) is connected by devices.
+### CommunicationNode
+A CommunicationNode is the representation of the interface of a simulated entity to logical communication networks. The location of the CommunicationNode is derived from the referenced entity or specified explicitly (if the referenced entity is not registered in the federation). 
+
+Connections to communication networks are established only if connectivity exists based on the status of available network devices and the simulation of links. Each potential connection is described in terms of requested connections  (the equivalent to the information provided by MSDL). 
+
+|Attribute|Description|
+|---|---|
+|EntityRef|**Required.** Required: Reference by UUID to an object instance of one of the following classes: (1) NETN-MRM Aggregate Entity, (2) NETN-Physical extensions of RPR Platforms and Lifeform object classes. If the referenced entity exists in the federation, the location of the node is derived from the location of the entity. If the referenced entity does not exist in the federation, the location of the node is defined by the Location attribute. |
+|Location|**Optional.** Specifies the location of the CommunicationNode in case the entity referenced by EntityRef is not registered in the federation. If the entity referenced by EntityRef exists in the federation, the location of the communication node is derived from that entity and the value of the Location attribute shall be ignored.|
+|RequestedConnections|**Optional.** |
+|NetworkDevices|**Optional.** |
 
 ### NetworkDevice
 A network device describes the association of a communication network (connection layer) to the physical network (link layer). It represents the physical / technical device connecting an entity to a transport medium. Each device can be associated to several communication networks but only to one physical network. It describes the transmitter and receiver capabilities.
