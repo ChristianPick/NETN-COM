@@ -105,8 +105,8 @@ Instances of this object class should be considered as optional. No federate sho
                     <name>CommunicationNode</name>
                     <sharing>PublishSubscribe</sharing>
                     <semantics>A CommunicationNode is the representation of the interface of a simulated entity to logical communication networks. The location of the CommunicationNode is derived from the referenced entity or specified explicitly (if the referenced entity is not registered in the federation). 
-
-Connections to communication networks are established only if connectivity exists based on the status of available network devices and the simulation of links. Each potential connection is described in terms of requested connections  (the equivalent to the information provided by MSDL). </semantics>
+ 
+Connections to communication networks are established only if connectivity exists based on the status of available network devices and the simulation of links. Each potential connection is described in terms of requested connections  (the equivalent to the information provided by MSDL).</semantics>
                     <attribute>
                         <name>EntityRef</name>
                         <dataType>UuidArrayOfHLAbyte16</dataType>
@@ -116,13 +116,13 @@ Connections to communication networks are established only if connectivity exist
                         <sharing>PublishSubscribe</sharing>
                         <transportation>HLAreliable</transportation>
                         <order>Receive</order>
-                        <semantics>Required: Reference by UUID to an object instance of one of the following classes:
-
-* NETN-MRM Aggregate Entity
-* NETN-Physical extensions of RPR Platforms and Lifeform object classes
-
-If the referenced entity exists in the federation, the location of the node is derived from the location of the entity.
-If the referenced entity does not exist in the federation, the location of the node is defined by the Location attribute. </semantics>
+                        <semantics>Required: Reference by UUID to an object instance of one of the following classes: 
+ 
+* NETN-MRM Aggregate Entity 
+* NETN-Physical extensions of RPR Platforms and Lifeform object classes 
+ 
+If the referenced entity exists in the federation, the location of the node is derived from the location of the entity. 
+If the referenced entity does not exist in the federation, the location of the node is defined by the Location attribute.</semantics>
                     </attribute>
                     <attribute>
                         <name>Location</name>
@@ -144,7 +144,7 @@ If the referenced entity does not exist in the federation, the location of the n
                         <sharing>PublishSubscribe</sharing>
                         <transportation>HLAreliable</transportation>
                         <order>Receive</order>
-                        <semantics></semantics>
+                        <semantics>Optional. Possible (requested) connections for the communication node.</semantics>
                     </attribute>
                     <attribute>
                         <name>NetworkDevices</name>
@@ -155,7 +155,7 @@ If the referenced entity does not exist in the federation, the location of the n
                         <sharing>PublishSubscribe</sharing>
                         <transportation>HLAreliable</transportation>
                         <order>Receive</order>
-                        <semantics></semantics>
+                        <semantics>Optional. Available network devices defining the association of a communication network (connection layer) with a physical network (link layer). Each network device can be associated with several communication networks but only to one physical network. Each network device also describes the transmitter and receiver capabilities.</semantics>
                     </attribute>
                 </objectClass>
                 <objectClass>
@@ -171,7 +171,7 @@ If the referenced entity does not exist in the federation, the location of the n
                         <sharing>PublishSubscribe</sharing>
                         <transportation>HLAreliable</transportation>
                         <order>Receive</order>
-                        <semantics>Required</semantics>
+                        <semantics>Required. Unique identifier for the communication network connection.</semantics>
                     </attribute>
                     <attribute>
                         <name>CommunicationNetworkId</name>
@@ -182,10 +182,10 @@ If the referenced entity does not exist in the federation, the location of the n
                         <sharing>PublishSubscribe</sharing>
                         <transportation>HLAreliable</transportation>
                         <order>Receive</order>
-                        <semantics>Required</semantics>
+                        <semantics>Required. An identifier for the communication network this connection belongs to.</semantics>
                     </attribute>
                     <attribute>
-                        <name>SenderId</name>
+                        <name>Sender</name>
                         <dataType>UuidArrayOfHLAbyte16</dataType>
                         <updateType>Static</updateType>
                         <updateCondition>NA</updateCondition>
@@ -193,7 +193,7 @@ If the referenced entity does not exist in the federation, the location of the n
                         <sharing>PublishSubscribe</sharing>
                         <transportation>HLAreliable</transportation>
                         <order>Receive</order>
-                        <semantics>Required</semantics>
+                        <semantics>Required. A reference to the entity sending data using this connection.</semantics>
                     </attribute>
                     <attribute>
                         <name>Receivers</name>
@@ -204,7 +204,7 @@ If the referenced entity does not exist in the federation, the location of the n
                         <sharing>PublishSubscribe</sharing>
                         <transportation>HLAreliable</transportation>
                         <order>Receive</order>
-                        <semantics>Required</semantics>
+                        <semantics>Required. Characteristics of the connections to individual receiving entities.</semantics>
                     </attribute>
                 </objectClass>
                 <objectClass>
@@ -373,16 +373,16 @@ If the referenced entity does not exist in the federation, the location of the n
             <enumeratedData>
                 <name>CommunicationServiceTypeEnum</name>
                 <representation>HLAoctet</representation>
-                <semantics>Service types as defined in MSDL.
-DATTRF: Data transfer
-FAX: Facsimile
-IFF: Identify Friend or Foe
-IMAGE: Image
-MCI: Multilateral Interoperability Programme (MIP) Common Interface Service
-MHS: Message Handling Service
-TDL: Tactical Data Link
-VIDSVC: Video Service
-VOCSVC:Voice Service
+                <semantics>Service types as defined in MSDL. 
+DATTRF: Data transfer 
+FAX: Facsimile 
+IFF: Identify Friend or Foe 
+IMAGE: Image 
+MCI: Multilateral Interoperability Programme (MIP) Common Interface Service 
+MHS: Message Handling Service 
+TDL: Tactical Data Link 
+VIDSVC: Video Service 
+VOCSVC:Voice Service 
 NOS: Not Otherwise Specified</semantics>
                 <enumerator>
                     <name>DATTRF</name>
@@ -479,7 +479,7 @@ NOS: Not Otherwise Specified</semantics>
                 <dataType>RequestedConnection</dataType>
                 <cardinality>Dynamic</cardinality>
                 <encoding>HLAvariableArray</encoding>
-                <semantics></semantics>
+                <semantics>Characterisation of a set of requested connections.</semantics>
             </arrayData>
             <arrayData>
                 <name>TextIdentifierArray64Array</name>
@@ -507,7 +507,7 @@ NOS: Not Otherwise Specified</semantics>
                 <dataType>ConnectionReceiverStruct</dataType>
                 <cardinality>Dynamic</cardinality>
                 <encoding>HLAvariableArray</encoding>
-                <semantics></semantics>
+                <semantics>Connection characteristics for a number of receivers.</semantics>
             </arrayData>
             <arrayData>
                 <name>IncomingConnectionArray</name>
@@ -646,16 +646,16 @@ NOS: Not Otherwise Specified</semantics>
             <fixedRecordData>
                 <name>RequestedConnection</name>
                 <encoding>HLAfixedRecord</encoding>
-                <semantics></semantics>
+                <semantics>Characterisation of a requested connection.</semantics>
                 <field>
                     <name>CommunicationNetworkId</name>
                     <dataType>TextIdentifierArray64</dataType>
-                    <semantics>Required</semantics>
+                    <semantics>Identifer for the communication network which the requested connection belongs to.</semantics>
                 </field>
                 <field>
                     <name>RequestedConnectionType</name>
                     <dataType>RequestConnectionTypeEnum</dataType>
-                    <semantics>Required</semantics>
+                    <semantics>The type of connection requested.</semantics>
                 </field>
                 <field>
                     <name>ConnectionId</name>
@@ -676,31 +676,31 @@ NOS: Not Otherwise Specified</semantics>
             <fixedRecordData>
                 <name>ConnectionReceiverStruct</name>
                 <encoding>HLAfixedRecord</encoding>
-                <semantics></semantics>
+                <semantics>Characteristics of a connection to a receiver.</semantics>
                 <field>
                     <name>ReceiverId</name>
                     <dataType>UuidArrayOfHLAbyte16</dataType>
-                    <semantics>Required</semantics>
+                    <semantics>Reference to a simulated entity receiving data through the connection.</semantics>
                 </field>
                 <field>
                     <name>Latency</name>
                     <dataType>TimeMillisecondsFloat32</dataType>
-                    <semantics>Required</semantics>
+                    <semantics>Latency in reaching the receiving entity.</semantics>
                 </field>
                 <field>
                     <name>Bandwith</name>
                     <dataType>BitsPerSecond</dataType>
-                    <semantics>Required</semantics>
+                    <semantics>The bandwith of the connection to the receiving entity,</semantics>
                 </field>
                 <field>
                     <name>Reliability</name>
                     <dataType>PercentFloat64</dataType>
-                    <semantics>Required</semantics>
+                    <semantics>The reliability of the connection to the receiving entity.</semantics>
                 </field>
                 <field>
                     <name>HopCount</name>
                     <dataType>Integer16</dataType>
-                    <semantics>Optional, defaults to 0 (=not specified)</semantics>
+                    <semantics>Number of hops required to reach the receiver. If set to 0 = not specified or calculated.</semantics>
                 </field>
             </fixedRecordData>
             <fixedRecordData>

@@ -7,21 +7,25 @@ This module is a specification of how to represent Communication Networks and re
 ## Purpose
 The purpose of the NETN COM module is to provide a standard way to exchange data related to Communication Networks and the status och communication links. The main objective is to provide a generic model that represents the status of communication links.        
 
-## Terms & Definitions
-To avoid misunderstanding or -interpretation the following definition of terms used in this description of the NETN-FOM module are used:
-* Entity: A entity is either a physical or an aggregated entity in the RPR-FOM.
-* Communication network: A group of nodes exchanging messages using a uniqly named logical network which is independent from the physical implementation used. A communication network is the foundation of a common shared information space.
-* Node: The representation of a unit in the NETN-COM module. A node describes the relation of an entity to all communication network it uses and the network devices used to establish a connection to other nodes.
-* Network device: The technical device (e.g. radio or ethernet) connecting an entity to a physical network to participate in one or multiple communication networks.
-* Physical network: The physical medium used to implement the connection between nodes.
-* Link: The phyiscal connection between two nodes of a physical network. A link descibes the relationship between a transmitting and a receiving network device.
-* Connection: A connection describes the relationship of at least two nodes in a communication network which requested the capability to exchange messages.
 
 ## Introduction
 The COM module describes logical communication networks for information exchange between simulated (and real) entities (physical and aggregated). It distinguishes three layers as show in the figure below:
 * Application Layer: The topmost layer roughly corresponds to OSI layers 5-7. This is implemented by the simulations themselves and has therefore no specific objects in the NETN-COM object model besides the optional detailed definition of communication networks. Application uses communication networks of the NETN-COM module to exchange data via connections. (Blue classes in the figure)
 * Connection Layer: This roughly corresponds to OSI layers 3-4. This layer describes the connections associated to communication networks. Entities are represented by nodes which are connected to each other to build an information sharing space. (Green and red classes in the figure)
 * Link Layer: This roughly corresponds to OSI layers 1-2. This layer is used to define the link quality parameters between two nodes. (Yellow classes in the figure)
+
+### Concepts
+The following definition of terms are used in the NETN-FOM module:
+
+* **Entity:** A entity is either a simulated physical or an aggregated entity.
+* **Communication network:** A group of communication nodes exchanging messages using a uniqly named logical network which is independent from the physical implementation used. A communication network is the foundation of a common shared information space.
+* **Communication node:** The representation of the interface of a simulated entity to logical communication networks. A communication node describes the relation between an entity to all communication networks it uses and the network devices used to establish a connection to other communication nodes.
+* **Connection:** A connection describes the relationship of at least two communication nodes in a communication network.
+* **Network device:** The technical device (e.g. radio or ethernet) connecting an entity to a physical network to participate in one or more communication networks.
+* **Physical network:** The physical medium used to implement the connection between nodes.
+* **Link:** The physical connection between two nodes of a physical network. A link descibes the relationship between a transmitting and a receiving network device.
+
+
 
 <img src="./images/overview.png" width="85%"/>
 
@@ -33,7 +37,7 @@ The approach used allows simulating physical links between nodes and based on th
 As the information provided in the link layer must not be used by the application layer only the connection information needs to be published in such a case.
 Proposal for CAX demo: Use the simplified approach – the physical network objects and link states are not published but all internal data of the communication simulation. Relevant / Used are Nodes (with generic TX/RX using broadcasts) and OutgoingConnections, in case the max hop count should be used and be taken from the physical network additionally PhysicalNetwork could be instantiated.
 
-### CommunicationNetwork
+## CommunicationNetwork
 The CommunicationNetwork class specifies details about the type of and service used by a logical communication network. This corresponds to the CommunicationNet-Elements of MSDL Units and Equipments. 
 Instances of this object class should be considered as optional. No federate should rely on this data to work with communication networks.
 
@@ -43,7 +47,7 @@ Instances of this object class should be considered as optional. No federate sho
 |NetworkType|**Optional.** The communication network type of use.|
 |ServiceType|**Optional.** The type of service used on the communication network.|
  
-### CommunicationNode
+## CommunicationNode
 A CommunicationNode is the representation of the interface of a simulated entity to logical communication networks. The location of the CommunicationNode is derived from the referenced entity or specified explicitly (if the referenced entity is not registered in the federation). 
 
 Connections to communication networks are established only if connectivity exists based on the status of available network devices and the simulation of links. Each potential connection is described in terms of requested connections  (the equivalent to the information provided by MSDL). 
@@ -52,15 +56,13 @@ Connections to communication networks are established only if connectivity exist
 |---|---|
 |EntityRef|**Required.** Required: Reference by UUID to an object instance of one of the following classes: (1) NETN-MRM Aggregate Entity, (2) NETN-Physical extensions of RPR Platforms and Lifeform object classes. If the referenced entity exists in the federation, the location of the node is derived from the location of the entity. If the referenced entity does not exist in the federation, the location of the node is defined by the Location attribute. |
 |Location|**Optional.** Specifies the location of the CommunicationNode in case the entity referenced by EntityRef is not registered in the federation. If the entity referenced by EntityRef exists in the federation, the location of the communication node is derived from that entity and the value of the Location attribute shall be ignored.|
-|RequestedConnections|**Optional.** |
-|NetworkDevices|**Optional.** |
-
-### NetworkDevice
-A network device describes the association of a communication network (connection layer) to the physical network (link layer). It represents the physical / technical device connecting an entity to a transport medium. Each device can be associated to several communication networks but only to one physical network. It describes the transmitter and receiver capabilities.
-TODO: Definition / Description of TX and RX. Use “generic” for CAX demo…
+|RequestedConnections|**Optional.** Possible (requested) connections for the communication node. |
+|NetworkDevices|**Optional.** Available network devices defining the association of a communication network (connection layer) with a physical network (link layer). Each network device can be associated with several communication networks but only to one physical network. Each network device also describes the transmitter and receiver capabilities.|
 
 ### RequestedConnection
-A requested connection describes the characteristics of each possible outgoing and/or incoming connection of an entity. In case of outgoing connections an optional connection identifier could be set to easier associate the resulting connection object to the requested connections. 
+A requested connection describes the characteristics of each possible outgoing and/or incoming connection to the communication node of an entity.
+
+In case of outgoing connections, an optional connection identifier could be set to easier associate the resulting connection object to the requested connections. 
 
 If a network device is specified the entitys’ endpoint of the connection should be the given device, otherwise all suitable devices associated to the communication network of the connection are used.
 Depending on the type of connection the meaning of the parameters changes:
