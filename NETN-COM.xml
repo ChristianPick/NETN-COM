@@ -144,7 +144,7 @@ If the referenced entity does not exist in the federation, the location of the n
                         <sharing>PublishSubscribe</sharing>
                         <transportation>HLAreliable</transportation>
                         <order>Receive</order>
-                        <semantics>Optional. Possible (requested) connections for the communication node.</semantics>
+                        <semantics>Required. Possible (requested) connections for the communication node.</semantics>
                     </attribute>
                     <attribute>
                         <name>NetworkDevices</name>
@@ -155,7 +155,7 @@ If the referenced entity does not exist in the federation, the location of the n
                         <sharing>PublishSubscribe</sharing>
                         <transportation>HLAreliable</transportation>
                         <order>Receive</order>
-                        <semantics>Optional. Available network devices defining the association of a communication network (connection layer) with a physical network (link layer). Each network device can be associated with several communication networks but only to one physical network. Each network device also describes the transmitter and receiver capabilities.</semantics>
+                        <semantics>Required. Available network devices defining the association of a communication network (connection layer) with a physical network (link layer). Each network device can be associated with several communication networks but only to one physical network. Each network device also describes the transmitter and receiver capabilities.</semantics>
                     </attribute>
                 </objectClass>
                 <objectClass>
@@ -185,7 +185,7 @@ If the referenced entity does not exist in the federation, the location of the n
                         <semantics>Required. An identifier for the communication network this connection belongs to.</semantics>
                     </attribute>
                     <attribute>
-                        <name>Sender</name>
+                        <name>SenderEntityRef</name>
                         <dataType>UuidArrayOfHLAbyte16</dataType>
                         <updateType>Static</updateType>
                         <updateCondition>NA</updateCondition>
@@ -660,17 +660,17 @@ NOS: Not Otherwise Specified</semantics>
                 <field>
                     <name>ConnectionId</name>
                     <dataType>UuidArrayOfHLAbyte16</dataType>
-                    <semantics>Optional</semantics>
+                    <semantics>Requested Id for the connection. If no Id is requested the value of this field should be all zeros.</semantics>
                 </field>
                 <field notes="netn-com_14">
-                    <name>DestinationEntitytIds</name>
+                    <name>DestinationEntityIds</name>
                     <dataType>UuidArray</dataType>
-                    <semantics>Optional</semantics>
+                    <semantics>List of entities intended as destinations for this requested connection.</semantics>
                 </field>
                 <field notes="netn-com_15">
                     <name>NetworkDeviceId</name>
                     <dataType>UuidArrayOfHLAbyte16</dataType>
-                    <semantics>Optional</semantics>
+                    <semantics>Network Device for the requested connection. If no specific network device is requested the value of this field should be all zeros.</semantics>
                 </field>
             </fixedRecordData>
             <fixedRecordData>

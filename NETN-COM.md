@@ -56,25 +56,25 @@ Connections to communication networks are established only if connectivity exist
 |---|---|
 |EntityRef|**Required.** Required: Reference by UUID to an object instance of one of the following classes: (1) NETN-MRM Aggregate Entity, (2) NETN-Physical extensions of RPR Platforms and Lifeform object classes. If the referenced entity exists in the federation, the location of the node is derived from the location of the entity. If the referenced entity does not exist in the federation, the location of the node is defined by the Location attribute. |
 |Location|**Optional.** Specifies the location of the CommunicationNode in case the entity referenced by EntityRef is not registered in the federation. If the entity referenced by EntityRef exists in the federation, the location of the communication node is derived from that entity and the value of the Location attribute shall be ignored.|
-|RequestedConnections|**Optional.** Possible (requested) connections for the communication node. |
-|NetworkDevices|**Optional.** Available network devices defining the association of a communication network (connection layer) with a physical network (link layer). Each network device can be associated with several communication networks but only to one physical network. Each network device also describes the transmitter and receiver capabilities.|
+|RequestedConnections|**Required.** Possible (requested) connections for the communication node. |
+|NetworkDevices|**Required.** Available network devices defining the association of a communication network (connection layer) with a physical network (link layer). Each network device can be associated with several communication networks but only to one physical network. Each network device also describes the transmitter and receiver capabilities.|
 
 ### RequestedConnection
-A requested connection describes the characteristics of each possible outgoing and/or incoming connection to the communication node of an entity.
+A requested connection is used to describes the characteristics of a possible connections to a communication network. For the types of connections where data is intended to be transmitted, a connection identifier can be provided that can be used to create an  `OutgoingCconnection` object instance. 
 
-In case of outgoing connections, an optional connection identifier could be set to easier associate the resulting connection object to the requested connections. 
+Unless a network device is explicitly specified, all suitable devices associated with the communication network of the requested connection shall be used.
 
-If a network device is specified the entitys’ endpoint of the connection should be the given device, otherwise all suitable devices associated to the communication network of the connection are used.
-Depending on the type of connection the meaning of the parameters changes:
+Depending on the type of the requested connection the use of the connection parameters differs:
+
 * Broadcast Transceiver connections: A combination of Broadcast Transmitter and Receiver
 * Broadcast Transmitter connections:
   * If TX is specified for a network device connections are established to all receiving entities reachable depending on the physical network description (ranges, max hops, etc.). Data is sent to all (directly linked) receivers simultaneously.
   * A Connection instance should be created (by the responsible federate).
-  * The DestinationEntityArray is ignored. [TBD: could this reasonably used for optimization?]
+  * The DestinationEntityArray is ignored.
 * Broadcast Receiver connections:
   * If RX is specified for a network device the connections listens to all incoming messages. 
   * The DestinationEntityArray is ignored. [TBD: could this reasonably used for optimization?]
-  * Peer-To-Peer connections:
+* Peer-To-Peer connections:
   * If TX is specified for a network device connections are established to all reachable specified destination entities.
   * If RX is specified for a network device the connections listens to all incoming messages which are sent to the own entity.
   * It is assumed that the communication is bidirectional and should use the same route in both directions. Nevertheless the connection from the receiver to our entity has to be defined at the receiver, too.
@@ -89,9 +89,8 @@ Depending on the type of connection the meaning of the parameters changes:
 * Intercepting connections: 
   * These are very special connections. They are not related to specific destination entities but intercept all type of connections that are reachable by the corresponding device. In case of broadcasts this corresponds to a broadcast receiver, otherwise this means the connection is routed through the corresponding device.
   * The DestinationEntityArray is ignored.
-  * TBD: How to describe intercepted links?
 
-Before data can be sent using a connection the connection must be requested and the corresponding connection instance must be available. Be aware that there is no guarantee that a connection instance will be present right after the connection was requested. If no connection instance is present this means the transmission of data is not possible. It is up to the federation agreement to specify the max. delay between request and the existence of the connection instance.
+Before data can be sent using a connection the connection it must be requested and the corresponding `OutgoingConnection` object instance must be created. There is no guarantee that a connection instance will be present right after the connection was requested. If no connection instance is present this means that the transmission of data is not possible. It is up to the federation agreement to specify the max. delay between request and the existence of the `OutgoingConnection` instance.
 
 ### OutgoingConnection
 
