@@ -91,7 +91,7 @@ Instances of this object class should be considered as optional. No federate sho
                         <sharing>PublishSubscribe</sharing>
                         <transportation>HLAreliable</transportation>
                         <order>Receive</order>
-                        <semantics>Required. Unique name for the communication network.</semantics>
+                        <semantics>Required. Unique communication network name. Unique in the context of communication networks.</semantics>
                     </attribute>
                     <attribute>
                         <name>NetworkType</name>
@@ -235,7 +235,7 @@ If the referenced entity does not exist in the federation, the location of the n
                         <sharing>PublishSubscribe</sharing>
                         <transportation>HLAreliable</transportation>
                         <order>Receive</order>
-                        <semantics>Required. Unique identifier for the communication network.</semantics>
+                        <semantics>Required. Unique physical network name. Uniqueness in the context of physical networks.</semantics>
                     </attribute>
                     <attribute>
                         <name>Description</name>
