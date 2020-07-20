@@ -3,16 +3,14 @@
     <modelIdentification>
         <name>NETN-COM</name>
         <type>FOM</type>
-        <version>1.0 (Baseline MAR 2020)</version>
-        <modificationDate>2020-07-17</modificationDate>
+        <version>1.0</version>
+        <modificationDate>2020-07-20</modificationDate>
         <securityClassification>Not classified</securityClassification>
         <purpose>Simulation, Training</purpose>
         <applicationDomain></applicationDomain>
-        <description>	
-NATO Education and Training Network (NETN) Communication Network (COM) Module. 
+        <description>NATO Education and Training Network (NETN) Communication Network (COM) Module. 
         
-This module is a specification of how to represent Communication Networks in a federated distributed simulation. The specification is based on IEEE 1516 High Level Architecture (HLA) Object Model Template (OMT) and primarily intended to support interoperability in a federated simulation (federation) based on HLA. An HLA OMT based Federation Object Model (FOM) is used to specify types of data and how it is encoded on the network. The NETN COM FOM module is available as a XML file for use in HLA based federations.
-        </description>
+This module is a specification of how to represent Communication Networks in a federated distributed simulation. The specification is based on IEEE 1516 High Level Architecture (HLA) Object Model Template (OMT) and primarily intended to support interoperability in a federated simulation (federation) based on HLA. An HLA OMT based Federation Object Model (FOM) is used to specify types of data and how it is encoded on the network. The NETN COM FOM module is available as a XML file for use in HLA based federations.</description>
         <useLimitation></useLimitation>
         <useHistory>1.0.0 - Initial version developed by MSG-164 and MSG-163 for NETN-FOM v3.0</useHistory>
         <poc>
@@ -44,6 +42,12 @@ This module is a specification of how to represent Communication Networks in a f
             <pocType>Contributor</pocType>
             <pocName>Daniel Kallfass</pocName>
             <pocOrg>Airbus Defence and Space</pocOrg>
+        </poc>
+        <poc>
+            <pocType>Contributor</pocType>
+            <pocName>Björn Löfstrand</pocName>
+            <pocOrg>Pitch Technologies</pocOrg>
+            <pocEmail>bjorn.lofstrand@pitch.se</pocEmail>
         </poc>
         <reference>
             <type>Dependency</type>
@@ -168,9 +172,20 @@ If the referenced entity does not exist in the federation, the location of the n
                         <order>Receive</order>
                         <semantics>Required. Available network devices defining the association of a communication network (connection layer) with a physical network (link layer). Each network device can be associated with several communication networks but only to one physical network. Each network device also describes the transmitter and receiver capabilities.</semantics>
                     </attribute>
+                    <attribute>
+                        <name>IncomingConnections</name>
+                        <dataType>IncomingConnectionArray</dataType>
+                        <updateType>Conditional</updateType>
+                        <updateCondition>OnChange</updateCondition>
+                        <ownership>DivestAcquire</ownership>
+                        <sharing>PublishSubscribe</sharing>
+                        <transportation>HLAreliable</transportation>
+                        <order>Receive</order>
+                        <semantics>Optional. Description of all incoming connections to the receiving entity.</semantics>
+                    </attribute>
                 </objectClass>
                 <objectClass>
-                    <name>OutgoingConnection</name>
+                    <name>Connection</name>
                     <sharing>PublishSubscribe</sharing>
                     <semantics>Description of an outgoing connection from a sender to a set of receivers.</semantics>
                     <attribute>
@@ -208,33 +223,6 @@ If the referenced entity does not exist in the federation, the location of the n
                     </attribute>
                 </objectClass>
                 <objectClass>
-                    <name>IncomingConnections</name>
-                    <sharing>PublishSubscribe</sharing>
-                    <semantics>All incoming connections for a recever entity.</semantics>
-                    <attribute>
-                        <name>ReceiverEntityId</name>
-                        <dataType>UUID</dataType>
-                        <updateType>Static</updateType>
-                        <updateCondition>NA</updateCondition>
-                        <ownership>NoTransfer</ownership>
-                        <sharing>PublishSubscribe</sharing>
-                        <transportation>HLAreliable</transportation>
-                        <order>Receive</order>
-                        <semantics>Required. Reference to the entity at the receiving end of the connections.</semantics>
-                    </attribute>
-                    <attribute>
-                        <name>Connections</name>
-                        <dataType>IncomingConnectionArray</dataType>
-                        <updateType>Conditional</updateType>
-                        <updateCondition>OnChange</updateCondition>
-                        <ownership>NoTransfer</ownership>
-                        <sharing>PublishSubscribe</sharing>
-                        <transportation>HLAreliable</transportation>
-                        <order>Receive</order>
-                        <semantics>Required. Description of all incoming connections to the receiving entity.</semantics>
-                    </attribute>
-                </objectClass>
-                <objectClass>
                     <name>PhysicalNetwork</name>
                     <sharing>PublishSubscribe</sharing>
                     <semantics>This object class represents type-specific parameters/constraints for a physical network. Physical networks are simulated by LinkState objects and do not require that an instance of PhysicalNetwork exist in the federation.</semantics>
@@ -267,7 +255,7 @@ If the referenced entity does not exist in the federation, the location of the n
                     <semantics></semantics>
                     <attribute>
                         <name>PhysicalNetworkName</name>
-                        <dataType>HLAunicodeString</dataType>
+                        <dataType>Text64</dataType>
                         <updateType>Static</updateType>
                         <updateCondition>NA</updateCondition>
                         <ownership>NoTransfer</ownership>
@@ -669,7 +657,7 @@ NOS: Not Otherwise Specified</semantics>
             <fixedRecordData>
                 <name>NetworkDeviceGenericTransmitterCharacteristicsStruct</name>
                 <encoding>HLAfixedRecord</encoding>
-                <semantics></semantics>
+                <semantics>Generic description of network device transmitter.</semantics>
                 <field>
                     <name>MaxLinkRange</name>
                     <dataType>MeterFloat32</dataType>
