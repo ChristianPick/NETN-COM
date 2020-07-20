@@ -62,7 +62,8 @@ Connections to communication networks are established only if connectivity exist
 ### RequestedConnection
 A requested connection is used to describes the characteristics of a possible connections to a communication network. For the types of connections where data is intended to be transmitted, a connection identifier can be provided that can be used to create an  `OutgoingCconnection` object instance. 
 
-Unless a network device is explicitly specified, all suitable devices associated with the communication network of the requested connection shall be used.
+Unless a network device is explicitly specified, all suitable devices associated with the communication network of the requested connection shall be used. 
+
 
 Depending on the type of the requested connection the use of the connection parameters differs:
 
@@ -92,6 +93,7 @@ Depending on the type of the requested connection the use of the connection para
 
 Before data can be sent using a connection the connection it must be requested and the corresponding `OutgoingConnection` object instance must be created. There is no guarantee that a connection instance will be present right after the connection was requested. If no connection instance is present this means that the transmission of data is not possible. It is up to the federation agreement to specify the max. delay between request and the existence of the `OutgoingConnection` instance.
 
+## Connections
 ### OutgoingConnection
 
 A connection object describes the communication capability of each entity to all other entities with respect to a communication network. A connection is set up for each requested connection (by a Node) if there is at least one reachable receiver. It is up to the federation agreement to define which federate is responsible of creating and maintaining the connection instance. A connection describes the connectivity but not the routes taken through a physical network defined by links between nodes. The application layer should make its decision whether to send or receive data on the connection information only. This means: Data should be sent in case a valid connection instance for transmitting data is available. Receivers should reject data from a sender if there is no corresponding receivers attribute or a message loss (packet loss) is assumed by the connection quality.
@@ -101,11 +103,16 @@ TBD: Should optional IP-endpoints be defined for the sender/receivers in case a 
 
 By federation agreement it could be agreed that one federate (or multiple if load balancing is needed) has to publish one IncomingConnections instance for each entity with an associated node. This object aggregates the informations provided by OutgoingConnection object instances to the receivers’ perspective. Incoming Connections objects are optional.
 
-### PhysicalNetwork
+## PhysicalNetwork
 
-The physical network object describes the type and all type specific parameters / constraints of a physical network. As these objects do have a purely informational character they should be assumed to be optional. Neither communication networks nor connection depends on the presence of any physical network object instances. This object could be used to define common constrains used by several link quality simulations distributing their load to multiple instances.
+The `PhysicalNetwork` object class represents type-specific parameters/constraints for a physical network. Physical networks are simulated by LinkState objects and do not require that an instance of PhysicalNetwork exist in the federation. Furthermode, the simulation of Communication Networks and Connections does not require any physical network objects. 
 
-### LinkStates
+|Attribute|Description|
+|---|---|
+|NetworkId|**Required.** Unique identifier for the communication network.|
+|Description|**Required.**  Characteristics of the physical network.|
+
+## LinkStates
 
 A link states instances describes the presence and quality of direct links between nodes on a physical level. Links are defined between a transmitting and receiving device. Bidirectional links can be marked – I such a case the link quality am assumed to be identical in both directions. Otherwise two unidirectional links should be described. A link should not be contained in more than one link states instance. If a link is not contained in any instance it is not present, means it could not be established.
 
