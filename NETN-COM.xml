@@ -252,7 +252,7 @@ If the referenced entity does not exist in the federation, the location of the n
                 <objectClass>
                     <name>LinkStates</name>
                     <sharing>PublishSubscribe</sharing>
-                    <semantics></semantics>
+                    <semantics>Representation of the state of links in a physical network.</semantics>
                     <attribute>
                         <name>PhysicalNetworkName</name>
                         <dataType>Text64</dataType>
@@ -497,7 +497,7 @@ NOS: Not Otherwise Specified</semantics>
             <fixedRecordData>
                 <name>LinkStatusStruct</name>
                 <encoding>HLAfixedRecord</encoding>
-                <semantics></semantics>
+                <semantics>Status of a physcial network link.</semantics>
                 <field>
                     <name>TransmitterDeviceId</name>
                     <dataType>UUID</dataType>
@@ -526,7 +526,7 @@ NOS: Not Otherwise Specified</semantics>
                 <field>
                     <name>IsBidirectional</name>
                     <dataType>HLAboolean</dataType>
-                    <semantics>Optional, default is false</semantics>
+                    <semantics>True is link is bi-directional. By default this value should be set to false.</semantics>
                 </field>
             </fixedRecordData>
             <fixedRecordData>
@@ -561,7 +561,7 @@ NOS: Not Otherwise Specified</semantics>
                 <field>
                     <name>IsRelay</name>
                     <dataType>HLAboolean</dataType>
-                    <semantics>Optional, defaults to true</semantics>
+                    <semantics>True if this network device acts as a relay. By default this value should be set to true.</semantics>
                 </field>
             </fixedRecordData>
             <fixedRecordData>
@@ -661,7 +661,7 @@ NOS: Not Otherwise Specified</semantics>
                 <field>
                     <name>MaxLinkRange</name>
                     <dataType>MeterFloat32</dataType>
-                    <semantics>Optional, defaults to 0 (=use default value from physical network)</semantics>
+                    <semantics>Range limit for the link in meters. By default this value should be set to zero. If zero the max link range is based on the default value from the associated physical network.</semantics>
                 </field>
             </fixedRecordData>
             <fixedRecordData>
