@@ -148,7 +148,7 @@ If the referenced entity does not exist in the federation, the location of the n
                         <sharing>PublishSubscribe</sharing>
                         <transportation>HLAreliable</transportation>
                         <order>Receive</order>
-                        <semantics>Optional: Specifies the location of the CommunicationNode in case the entity referenced by EntityRef is not registered in the federation. If the entity referenced by EntityRef exists in the federation, the location of the communication node is derived from that entity and the value of the Location attribute shall be ignored.</semantics>
+                        <semantics>Optional: Specifies the location of the CommunicationNode in case the entity referenced by EntityId is not registered in the federation. If the entity referenced by EntityId exists in the federation, the location of the communication node is derived from that entity and the value of the Location attribute shall be ignored.</semantics>
                     </attribute>
                     <attribute>
                         <name>RequestedConnections</name>
@@ -197,7 +197,7 @@ If the referenced entity does not exist in the federation, the location of the n
                         <sharing>PublishSubscribe</sharing>
                         <transportation>HLAreliable</transportation>
                         <order>Receive</order>
-                        <semantics>Required. An identifier for the communication network this connection belongs to.</semantics>
+                        <semantics>Required. A reference to the communication network this connection belongs to.</semantics>
                     </attribute>
                     <attribute>
                         <name>SenderEntityId</name>
@@ -262,7 +262,7 @@ If the referenced entity does not exist in the federation, the location of the n
                         <sharing>PublishSubscribe</sharing>
                         <transportation>HLAreliable</transportation>
                         <order>Receive</order>
-                        <semantics>Required: Reference to physcial network by its unique name.</semantics>
+                        <semantics>Required: Reference to physical network by its unique name.</semantics>
                     </attribute>
                     <attribute>
                         <name>Links</name>
