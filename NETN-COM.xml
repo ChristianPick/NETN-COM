@@ -70,12 +70,12 @@ Above license gives you the right to use and redistribute the NETN FOM Module (X
                     <name>UniqueId</name>
                     <dataType>UUID</dataType>
                     <updateType>NA</updateType>
-                    <updateCondition></updateCondition>
+                    <updateCondition>Static</updateCondition>
                     <ownership>NoTransfer</ownership>
                     <sharing>PublishSubscribe</sharing>
                     <transportation>HLAreliable</transportation>
                     <order>Receive</order>
-                    <semantics></semantics>
+                    <semantics>Required: Unique identifer for all NETN-COM object classes.</semantics>
                 </attribute>
                 <objectClass>
                     <name>CommunicationNetwork</name>
@@ -228,7 +228,7 @@ If the referenced entity does not exist in the federation, the location of the n
                     <semantics>This object class represents type-specific parameters/constraints for a physical network. Physical networks are simulated by LinkState objects and do not require that an instance of PhysicalNetwork exist in the federation.</semantics>
                     <attribute>
                         <name>UniqueName</name>
-                        <dataType>HLAunicodeString</dataType>
+                        <dataType>Text64</dataType>
                         <updateType>Static</updateType>
                         <updateCondition>NA</updateCondition>
                         <ownership>NoTransfer</ownership>
@@ -262,7 +262,7 @@ If the referenced entity does not exist in the federation, the location of the n
                         <sharing>PublishSubscribe</sharing>
                         <transportation>HLAreliable</transportation>
                         <order>Receive</order>
-                        <semantics></semantics>
+                        <semantics>Required: Reference to physcial network by its unique name.</semantics>
                     </attribute>
                     <attribute>
                         <name>Links</name>
@@ -273,7 +273,7 @@ If the referenced entity does not exist in the federation, the location of the n
                         <sharing>PublishSubscribe</sharing>
                         <transportation>HLAreliable</transportation>
                         <order>Receive</order>
-                        <semantics></semantics>
+                        <semantics>Required: Status of a set of physical network links.</semantics>
                     </attribute>
                 </objectClass>
             </objectClass>
@@ -702,7 +702,7 @@ NOS: Not Otherwise Specified</semantics>
             <fixedRecordData>
                 <name>NetworkDeviceEmptyCharactersticsStruct</name>
                 <encoding>HLAfixedRecord</encoding>
-                <semantics></semantics>
+                <semantics>Empty placeholder for future network device characteristics.</semantics>
             </fixedRecordData>
         </fixedRecordDataTypes>
         <variantRecordDataTypes>
@@ -714,40 +714,40 @@ NOS: Not Otherwise Specified</semantics>
                     <enumerator>NoNetwork</enumerator>
                     <name>NoNetwork</name>
                     <dataType>NetworkDeviceEmptyCharactersticsStruct</dataType>
-                    <semantics></semantics>
+                    <semantics>No Network</semantics>
                 </alternative>
                 <alternative>
                     <enumerator>Generic</enumerator>
                     <name>Generic</name>
                     <dataType>NetworkDeviceGenericTransmitterCharacteristicsStruct</dataType>
-                    <semantics></semantics>
+                    <semantics>A generic description of transmitter characteristics.</semantics>
                 </alternative>
                 <alternative>
                     <enumerator>Radio</enumerator>
                     <name>Radio</name>
                     <dataType>NetworkDeviceEmptyCharactersticsStruct</dataType>
-                    <semantics></semantics>
+                    <semantics>NA</semantics>
                 </alternative>
                 <alternative>
                     <enumerator>Cable</enumerator>
                     <name>Cable</name>
                     <dataType>NetworkDeviceEmptyCharactersticsStruct</dataType>
-                    <semantics></semantics>
+                    <semantics>NA</semantics>
                 </alternative>
                 <alternative>
                     <enumerator>Laser</enumerator>
                     <name>Laser</name>
                     <dataType>NetworkDeviceEmptyCharactersticsStruct</dataType>
-                    <semantics></semantics>
+                    <semantics>NA</semantics>
                 </alternative>
                 <alternative>
                     <enumerator>Sound</enumerator>
                     <name>Sound</name>
                     <dataType>NetworkDeviceEmptyCharactersticsStruct</dataType>
-                    <semantics></semantics>
+                    <semantics>NA</semantics>
                 </alternative>
                 <encoding>HLAvariantRecord</encoding>
-                <semantics></semantics>
+                <semantics>Characteristics of network device transmitter. Only the Generic alternative is applicable in this version of the NETN-COM module. </semantics>
             </variantRecordData>
             <variantRecordData>
                 <name>NetworkDeviceReceiverCharacteristicsVariant</name>
@@ -763,34 +763,34 @@ NOS: Not Otherwise Specified</semantics>
                     <enumerator>Generic</enumerator>
                     <name>Generic</name>
                     <dataType>NetworkDeviceEmptyCharactersticsStruct</dataType>
-                    <semantics></semantics>
+                    <semantics>NA</semantics>
                 </alternative>
                 <alternative>
                     <enumerator>Radio</enumerator>
                     <name>Radio</name>
                     <dataType>NetworkDeviceEmptyCharactersticsStruct</dataType>
-                    <semantics></semantics>
+                    <semantics>NA</semantics>
                 </alternative>
                 <alternative>
                     <enumerator>Cable</enumerator>
                     <name>Cable</name>
                     <dataType>NetworkDeviceEmptyCharactersticsStruct</dataType>
-                    <semantics></semantics>
+                    <semantics>NA</semantics>
                 </alternative>
                 <alternative>
                     <enumerator>Laser</enumerator>
                     <name>Laser</name>
                     <dataType>NetworkDeviceEmptyCharactersticsStruct</dataType>
-                    <semantics></semantics>
+                    <semantics>NA</semantics>
                 </alternative>
                 <alternative>
                     <enumerator>Sound</enumerator>
                     <name>Sound</name>
                     <dataType>NetworkDeviceEmptyCharactersticsStruct</dataType>
-                    <semantics></semantics>
+                    <semantics>NA</semantics>
                 </alternative>
                 <encoding>HLAvariantRecord</encoding>
-                <semantics></semantics>
+                <semantics>Characteristics of a network device receiver.</semantics>
             </variantRecordData>
             <variantRecordData>
                 <name>PhysicalNetworkDescriptionVariant</name>
@@ -800,7 +800,7 @@ NOS: Not Otherwise Specified</semantics>
                     <enumerator>Generic</enumerator>
                     <name>Generic</name>
                     <dataType>PhysicalGenericNetworkStruct</dataType>
-                    <semantics></semantics>
+                    <semantics>Characteristics of a generic physical network.</semantics>
                 </alternative>
                 <encoding>HLAvariantRecord</encoding>
                 <semantics>Characteristics of physical networks depending on their type.</semantics>
