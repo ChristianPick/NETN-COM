@@ -134,7 +134,7 @@ Connections to communication networks are established only if connectivity exist
                         <semantics>Required: Reference by UUID to an object instance of one of the following classes: 
  
 * NETN-MRM Aggregate Entity 
-* NETN-Physical extensions of RPR Platforms and Lifeform object classes 
+* NETN-Physical extensions of RPR Physical Entities.
  
 If the referenced entity exists in the federation, the location of the node is derived from the location of the entity. 
 If the referenced entity does not exist in the federation, the location of the node is defined by the Location attribute.</semantics>
@@ -545,7 +545,7 @@ NOS: Not Otherwise Specified</semantics>
                 </field>
                 <field>
                     <name>PhysicalNetworkName</name>
-                    <dataType>HLAunicodeString</dataType>
+                    <dataType>Text64</dataType>
                     <semantics>Reference to physical network this device is connected to.</semantics>
                 </field>
                 <field>
@@ -722,32 +722,8 @@ NOS: Not Otherwise Specified</semantics>
                     <dataType>NetworkDeviceGenericTransmitterCharacteristicsStruct</dataType>
                     <semantics>A generic description of transmitter characteristics.</semantics>
                 </alternative>
-                <alternative>
-                    <enumerator>Radio</enumerator>
-                    <name>Radio</name>
-                    <dataType>NetworkDeviceEmptyCharactersticsStruct</dataType>
-                    <semantics>NA</semantics>
-                </alternative>
-                <alternative>
-                    <enumerator>Cable</enumerator>
-                    <name>Cable</name>
-                    <dataType>NetworkDeviceEmptyCharactersticsStruct</dataType>
-                    <semantics>NA</semantics>
-                </alternative>
-                <alternative>
-                    <enumerator>Laser</enumerator>
-                    <name>Laser</name>
-                    <dataType>NetworkDeviceEmptyCharactersticsStruct</dataType>
-                    <semantics>NA</semantics>
-                </alternative>
-                <alternative>
-                    <enumerator>Sound</enumerator>
-                    <name>Sound</name>
-                    <dataType>NetworkDeviceEmptyCharactersticsStruct</dataType>
-                    <semantics>NA</semantics>
-                </alternative>
                 <encoding>HLAvariantRecord</encoding>
-                <semantics>Characteristics of network device transmitter. Only the Generic alternative is applicable in this version of the NETN-COM module. </semantics>
+                <semantics>Characteristics of network device transmitter.</semantics>
             </variantRecordData>
             <variantRecordData>
                 <name>NetworkDeviceReceiverCharacteristicsVariant</name>
@@ -762,30 +738,6 @@ NOS: Not Otherwise Specified</semantics>
                 <alternative>
                     <enumerator>Generic</enumerator>
                     <name>Generic</name>
-                    <dataType>NetworkDeviceEmptyCharactersticsStruct</dataType>
-                    <semantics>NA</semantics>
-                </alternative>
-                <alternative>
-                    <enumerator>Radio</enumerator>
-                    <name>Radio</name>
-                    <dataType>NetworkDeviceEmptyCharactersticsStruct</dataType>
-                    <semantics>NA</semantics>
-                </alternative>
-                <alternative>
-                    <enumerator>Cable</enumerator>
-                    <name>Cable</name>
-                    <dataType>NetworkDeviceEmptyCharactersticsStruct</dataType>
-                    <semantics>NA</semantics>
-                </alternative>
-                <alternative>
-                    <enumerator>Laser</enumerator>
-                    <name>Laser</name>
-                    <dataType>NetworkDeviceEmptyCharactersticsStruct</dataType>
-                    <semantics>NA</semantics>
-                </alternative>
-                <alternative>
-                    <enumerator>Sound</enumerator>
-                    <name>Sound</name>
                     <dataType>NetworkDeviceEmptyCharactersticsStruct</dataType>
                     <semantics>NA</semantics>
                 </alternative>
