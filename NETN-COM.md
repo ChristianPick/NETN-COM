@@ -24,14 +24,17 @@ The following definition of terms are used in the NETN-FOM module:
 * **Physical network:** The physical medium used to implement the connection between nodes.
 * **Link:** The physical connection between two nodes of a physical network. A link describes the relationship between a transmitting and a receiving network device.
 
+<img src="./images/Concepts.png" width="100%"/>
+Figure. Concept Relationships
 
-<img src="./images/Overview.png" width="85%"/>
-
-Figure. Object Classes
 
 By separating the representation of the physical- and communication network layers, different simulations can be used to model the system on different levels, e.g. radio signal propagation simulations for the link layer and an ad hoc network routing simulation on the connection layer.
 
 The model does not require all levels and networks to be represented in the federation. Which objects are needed depends on the federation design and allocation of modelling responsibilities. E.g. at the application layer, only the connection information needs to be published.
+
+<img src="./images/Overview.png" width="85%"/>
+
+Figure. Object Classes
 
 The application layer should only use the `CommunicationNode` and `Connection` objects to determine if data can be sent or received. I.e. data should only be sent if a valid instance of `Connection` for transmitting data is available, and receivers should reject data from a sender if it is not included in `IncomingConnections`.
 
