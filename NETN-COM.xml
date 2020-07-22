@@ -134,7 +134,7 @@ Connections to communication networks are established only if connectivity exist
                         <semantics>Required: Reference by UUID to an object instance of one of the following classes: 
  
 * NETN-MRM Aggregate Entity 
-* NETN-Physical extensions of RPR Physical Entities.
+* NETN-Physical extensions of RPR Physical Entities. 
  
 If the referenced entity exists in the federation, the location of the node is derived from the location of the entity. 
 If the referenced entity does not exist in the federation, the location of the node is defined by the Location attribute.</semantics>
@@ -448,7 +448,7 @@ NOS: Not Otherwise Specified</semantics>
                 <dataType>LinkStatusStruct</dataType>
                 <cardinality>Dynamic</cardinality>
                 <encoding>HLAvariableArray</encoding>
-                <semantics>The status of a physical network link.</semantics>
+                <semantics>The status of physical network links.</semantics>
             </arrayData>
             <arrayData>
                 <name>Text64</name>
