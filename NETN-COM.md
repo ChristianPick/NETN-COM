@@ -25,7 +25,7 @@ The following definition of terms are used in the NETN-FOM module:
 * **Link:** The physical connection between two nodes of a physical network. A link describes the relationship between a transmitting and a receiving network device.
 
 
-<img src="./images/overview.png" width="85%"/>
+<img src="./images/Overview.png" width="85%"/>
 
 Figure. Object Classes
 
