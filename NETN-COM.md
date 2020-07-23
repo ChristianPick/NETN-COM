@@ -6,6 +6,7 @@ This module is a specification of how to represent Communication Networks and re
 
 ## Purpose
 The purpose of the NETN COM module is to provide a standard way to exchange data related to Communication Networks and Physical Networks. The main objective is to provide a generic model that represents the status of connections in a communication network and links in a physical network.
+The Communication Networks can be set up to use radios, ethernet, satellite communication or laser based links, transmitting from point to point or routing through the network.
 
 ## Introduction
 The NETN-COM module distinguishes between three layers of networks.
@@ -37,6 +38,8 @@ The model does not require all levels and networks to be represented in the fede
 Figure. Object Classes
 
 The application layer should only use the `CommunicationNode` and `Connection` objects to determine if data can be sent or received. I.e. data should only be sent if a valid instance of `Connection` for transmitting data is available, and receivers should reject data from a sender if it is not included in `IncomingConnections`.
+
+The application layer should only use the `CommunicationNode` and `Connection` objects to determine if data can be sent or received. If no `Connection` object is present or no receiver is set set the sender could drop the data. The receiver must reject incoming messages if he is not inlcuded in the receivers' list of the corresponding Connection object. In case IncommingConnections are calculated for the receivers' CommunicationNode this data could be used instead of the data present in the Connection object.
 
 ## CommunicationNetwork
 The CommunicationNetwork class specifies details about the type of and service used by a logical communication network. This corresponds to the CommunicationNet-Elements of MSDL Units and Equipments. 
