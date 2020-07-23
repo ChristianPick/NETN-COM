@@ -37,9 +37,8 @@ The model does not require all levels and networks to be represented in the fede
 
 Figure. Object Classes
 
-The application layer should only use the `CommunicationNode` and `Connection` objects to determine if data can be sent or received. I.e. data should only be sent if a valid instance of `Connection` for transmitting data is available, and receivers should reject data from a sender if it is not included in `IncomingConnections`.
+The application layer should only use the `CommunicationNode` and `Connection` objects to determine if data can be sent or received. If no `Connection` object exists or if the `Receivers` attribute is empty, the sender can drop the data entirely. A receiver should drop any incoming messages if not included in the `Receivers` attribute of the corresponding `Connection` object. If the `IncommingConnections` attribute of a `CommunicationNode` is calculated for a receiver, it can be used to determine if incoming data should be dropped or not.
 
-The application layer should only use the `CommunicationNode` and `Connection` objects to determine if data can be sent or received. If no `Connection` object is present or no receiver is set set the sender could drop the data. The receiver must reject incoming messages if he is not inlcuded in the receivers' list of the corresponding Connection object. In case IncommingConnections are calculated for the receivers' CommunicationNode this data could be used instead of the data present in the Connection object.
 
 ## CommunicationNetwork
 The CommunicationNetwork class specifies details about the type of and service used by a logical communication network. This corresponds to the CommunicationNet-Elements of MSDL Units and Equipments. 
@@ -52,9 +51,11 @@ Instances of this object class should be considered as optional. No federate sho
 |ServiceType|**Optional.** The type of service used on the communication network.|
  
 ## CommunicationNode
-A CommunicationNode is the representation of the interface of a simulated entity to logical communication networks. The location of the CommunicationNode is derived from the referenced entity or specified explicitly (if the referenced entity is not registered in the federation). 
 
-Connections to communication networks are only established if connectivity exists based on the status of available network devices and the simulation of links. Each potential connection is described in terms of requested connections  (the equivalent to the information provided by MSDL). 
+A `CommunicationNode` is the representation of the interface of a simulated entity to logical communication networks. The location of the `CommunicationNode` is derived from the referenced entity or specified explicitly if the referenced entity is not registered in the federation.
+
+Each potential connection is described in terms of requested connections (the equivalent to the information provided by MSDL). `Connection` objects represent the availability of a connection and its receivers. It is up to a communication simulation to create `Connection` objects for the requested connections based on the network devices of the `CommunicationNode`, the physical network and the link quality between network devices. Depending on the federation design and agreements, the explicit representation of the physical layer objects, `PhysicalNetwork` and `LinkStates`, is optional.
+
 
 |Attribute|Description|
 |---|---|
