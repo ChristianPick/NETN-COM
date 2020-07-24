@@ -3,16 +3,14 @@
     <modelIdentification>
         <name>NETN-COM</name>
         <type>FOM</type>
-        <version>1.0 (Baseline MAR 2020)</version>
-        <modificationDate>2020-03-21</modificationDate>
+        <version>1.0</version>
+        <modificationDate>2020-07-22</modificationDate>
         <securityClassification>Not classified</securityClassification>
         <purpose>Simulation, Training</purpose>
         <applicationDomain></applicationDomain>
-        <description>	
-NATO Education and Training Network (NETN) Communication Network (COM) Module. 
+        <description>NATO Education and Training Network (NETN) Communication Network (COM) Module. 
         
-This module is a specification of how to represent Communication Networks in a federated distributed simulation. The specification is based on IEEE 1516 High Level Architecture (HLA) Object Model Template (OMT) and primarily intended to support interoperability in a federated simulation (federation) based on HLA. An HLA OMT based Federation Object Model (FOM) is used to specify types of data and how it is encoded on the network. The NETN COM FOM module is available as a XML file for use in HLA based federations.
-        </description>
+This module is a specification of how to represent Communication Networks in a federated distributed simulation. The specification is based on IEEE 1516 High Level Architecture (HLA) Object Model Template (OMT) and primarily intended to support interoperability in a federated simulation (federation) based on HLA. An HLA OMT based Federation Object Model (FOM) is used to specify types of data and how it is encoded on the network. The NETN COM FOM module is available as a XML file for use in HLA based federations.</description>
         <useLimitation></useLimitation>
         <useHistory>1.0.0 - Initial version developed by MSG-164 and MSG-163 for NETN-FOM v3.0</useHistory>
         <poc>
@@ -45,6 +43,12 @@ This module is a specification of how to represent Communication Networks in a f
             <pocName>Daniel Kallfass</pocName>
             <pocOrg>Airbus Defence and Space</pocOrg>
         </poc>
+        <poc>
+            <pocType>Contributor</pocType>
+            <pocName>Björn Löfstrand</pocName>
+            <pocOrg>Pitch Technologies</pocOrg>
+            <pocEmail>bjorn.lofstrand@pitch.se</pocEmail>
+        </poc>
         <reference>
             <type>Dependency</type>
             <identification>NETN-BASE</identification>
@@ -53,7 +57,7 @@ This module is a specification of how to represent Communication Networks in a f
 This work is licensed under a Creative Commons Attribution-NoDerivatives 4.0 International License.
 
 Above license gives you the right to use and redistribute the NETN FOM Module (XML file and Documentation) in its entirety without modification. You are also allowed to develop your own new FOM Modules (in separate XML files and separate documentation) that build-on/extends the NETN module by reference. You are NOT allowed to modify the NETN FOM Module or its documentation without prior permission by the NATO Modelling and Simulation Group.</other>
-        <glyph type="png" height="64" width="64" alt="">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</glyph>
+        <glyph type="png" height="48" width="48" alt="">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</glyph>
     </modelIdentification>
     <objects>
         <objectClass>
@@ -61,119 +65,150 @@ Above license gives you the right to use and redistribute the NETN FOM Module (X
             <objectClass>
                 <name>COM_Root</name>
                 <sharing>Neither</sharing>
-                <semantics></semantics>
+                <semantics>Abstract root class for all NETN-COM objects.</semantics>
+                <attribute>
+                    <name>UniqueId</name>
+                    <dataType>UUID</dataType>
+                    <updateType>NA</updateType>
+                    <updateCondition>Static</updateCondition>
+                    <ownership>NoTransfer</ownership>
+                    <sharing>PublishSubscribe</sharing>
+                    <transportation>HLAreliable</transportation>
+                    <order>Receive</order>
+                    <semantics>Required: Unique identifer for all NETN-COM object classes.</semantics>
+                </attribute>
                 <objectClass>
                     <name>CommunicationNetwork</name>
                     <sharing>PublishSubscribe</sharing>
-                    <semantics>Optional</semantics>
+                    <semantics>The CommunicationNetwork class specifies details about the type of and service used by a logical communication network. This corresponds to the CommunicationNet-Elements of MSDL Units and Equipments. 
+Instances of this object class should be considered as optional. No federate should rely on this data to work with communication networks.</semantics>
                     <attribute>
-                        <name>CommunicationNetworkId</name>
-                        <dataType>TextIdentifierArray64</dataType>
+                        <name>UniqueName</name>
+                        <dataType>Text64</dataType>
                         <updateType>Static</updateType>
                         <updateCondition>NA</updateCondition>
                         <ownership>NoTransfer</ownership>
                         <sharing>PublishSubscribe</sharing>
                         <transportation>HLAreliable</transportation>
                         <order>Receive</order>
-                        <semantics>Required</semantics>
+                        <semantics>Required. Unique communication network name. Unique in the context of communication networks.</semantics>
                     </attribute>
                     <attribute>
-                        <name>CommunicationNetworkType</name>
-                        <dataType>CommunicationNetTypeEnum</dataType>
+                        <name>NetworkType</name>
+                        <dataType>CommunicationNetworkTypeEnum</dataType>
                         <updateType>Static</updateType>
                         <updateCondition>NA</updateCondition>
-                        <ownership>NoTransfer</ownership>
+                        <ownership>DivestAcquire</ownership>
                         <sharing>PublishSubscribe</sharing>
                         <transportation>HLAreliable</transportation>
                         <order>Receive</order>
-                        <semantics>Optional</semantics>
+                        <semantics>Optional. The communication network type of use.</semantics>
                     </attribute>
                     <attribute>
-                        <name>CommunicationServiceType</name>
+                        <name>ServiceType</name>
                         <dataType>CommunicationServiceTypeEnum</dataType>
                         <updateType>Static</updateType>
                         <updateCondition>NA</updateCondition>
-                        <ownership>NoTransfer</ownership>
+                        <ownership>DivestAcquire</ownership>
                         <sharing>PublishSubscribe</sharing>
                         <transportation>HLAreliable</transportation>
                         <order>Receive</order>
-                        <semantics>Required</semantics>
+                        <semantics>Optional. The type of service used on the communication network.</semantics>
                     </attribute>
                 </objectClass>
                 <objectClass>
-                    <name>Node</name>
+                    <name>CommunicationNode</name>
                     <sharing>PublishSubscribe</sharing>
-                    <semantics></semantics>
+                    <semantics>A CommunicationNode is the representation of the interface of a simulated entity to logical communication networks. The location of the CommunicationNode is derived from the referenced entity or specified explicitly (if the referenced entity is not registered in the federation). 
+ 
+Connections to communication networks are established only if connectivity exists based on the status of available network devices and the simulation of links. Each potential connection is described in terms of requested connections  (the equivalent to the information provided by MSDL).</semantics>
                     <attribute>
-                        <name>OwnerId</name>
-                        <dataType>UuidArrayOfHLAbyte16</dataType>
+                        <name>EntityId</name>
+                        <dataType>UUID</dataType>
                         <updateType>Static</updateType>
                         <updateCondition>NA</updateCondition>
-                        <ownership>NoTransfer</ownership>
+                        <ownership>DivestAcquire</ownership>
                         <sharing>PublishSubscribe</sharing>
                         <transportation>HLAreliable</transportation>
                         <order>Receive</order>
-                        <semantics></semantics>
+                        <semantics>Required: Reference by UUID to an object instance of one of the following classes: 
+ 
+* NETN-MRM Aggregate Entity 
+* NETN-Physical extensions of RPR Physical Entities. 
+ 
+If the referenced entity exists in the federation, the location of the node is derived from the location of the entity. 
+If the referenced entity does not exist in the federation, the location of the node is defined by the Location attribute.</semantics>
+                    </attribute>
+                    <attribute>
+                        <name>Location</name>
+                        <dataType>WorldLocationStruct</dataType>
+                        <updateType>Conditional</updateType>
+                        <updateCondition>OnChange</updateCondition>
+                        <ownership>DivestAcquire</ownership>
+                        <sharing>PublishSubscribe</sharing>
+                        <transportation>HLAreliable</transportation>
+                        <order>Receive</order>
+                        <semantics>Optional: Specifies the location of the CommunicationNode in case the entity referenced by EntityId is not registered in the federation. If the entity referenced by EntityId exists in the federation, the location of the communication node is derived from that entity and the value of the Location attribute shall be ignored.</semantics>
+                    </attribute>
+                    <attribute>
+                        <name>RequestedConnections</name>
+                        <dataType>RequestedConnectionArray</dataType>
+                        <updateType>Conditional</updateType>
+                        <updateCondition>OnChange</updateCondition>
+                        <ownership>DivestAcquire</ownership>
+                        <sharing>PublishSubscribe</sharing>
+                        <transportation>HLAreliable</transportation>
+                        <order>Receive</order>
+                        <semantics>Required. Possible (requested) connections for the communication node.</semantics>
                     </attribute>
                     <attribute>
                         <name>NetworkDevices</name>
                         <dataType>NetworkDeviceArray</dataType>
                         <updateType>Conditional</updateType>
                         <updateCondition>OnChange</updateCondition>
-                        <ownership>NoTransfer</ownership>
+                        <ownership>DivestAcquire</ownership>
                         <sharing>PublishSubscribe</sharing>
                         <transportation>HLAreliable</transportation>
                         <order>Receive</order>
-                        <semantics></semantics>
+                        <semantics>Required. Available network devices defining the association of a communication network (connection layer) with a physical network (link layer). Each network device can be associated with several communication networks but only to one physical network. Each network device also describes the transmitter and receiver capabilities.</semantics>
                     </attribute>
                     <attribute>
-                        <name>Connections</name>
-                        <dataType>RequestedConnectionArray</dataType>
+                        <name>IncomingConnections</name>
+                        <dataType>IncomingConnectionArray</dataType>
                         <updateType>Conditional</updateType>
                         <updateCondition>OnChange</updateCondition>
-                        <ownership>NoTransfer</ownership>
+                        <ownership>DivestAcquire</ownership>
                         <sharing>PublishSubscribe</sharing>
                         <transportation>HLAreliable</transportation>
                         <order>Receive</order>
-                        <semantics></semantics>
+                        <semantics>Optional. Description of all incoming connections to the receiving entity.</semantics>
                     </attribute>
                 </objectClass>
                 <objectClass>
-                    <name>OutgoingConnection</name>
+                    <name>Connection</name>
                     <sharing>PublishSubscribe</sharing>
-                    <semantics></semantics>
+                    <semantics>Description of an outgoing connection from a sender to a set of receivers.</semantics>
                     <attribute>
-                        <name>ConnectionId</name>
-                        <dataType>UuidArrayOfHLAbyte16</dataType>
+                        <name>CommunicationNetworkName</name>
+                        <dataType>Text64</dataType>
                         <updateType>Static</updateType>
                         <updateCondition>NA</updateCondition>
                         <ownership>NoTransfer</ownership>
                         <sharing>PublishSubscribe</sharing>
                         <transportation>HLAreliable</transportation>
                         <order>Receive</order>
-                        <semantics>Required</semantics>
+                        <semantics>Required. A reference to the communication network this connection belongs to.</semantics>
                     </attribute>
                     <attribute>
-                        <name>CommunicationNetworkId</name>
-                        <dataType>TextIdentifierArray64</dataType>
+                        <name>SenderEntityId</name>
+                        <dataType>UUID</dataType>
                         <updateType>Static</updateType>
                         <updateCondition>NA</updateCondition>
                         <ownership>NoTransfer</ownership>
                         <sharing>PublishSubscribe</sharing>
                         <transportation>HLAreliable</transportation>
                         <order>Receive</order>
-                        <semantics>Required</semantics>
-                    </attribute>
-                    <attribute>
-                        <name>SenderId</name>
-                        <dataType>UuidArrayOfHLAbyte16</dataType>
-                        <updateType>Static</updateType>
-                        <updateCondition>NA</updateCondition>
-                        <ownership>NoTransfer</ownership>
-                        <sharing>PublishSubscribe</sharing>
-                        <transportation>HLAreliable</transportation>
-                        <order>Receive</order>
-                        <semantics>Required</semantics>
+                        <semantics>Required. A reference to the entity sending data using this connection.</semantics>
                     </attribute>
                     <attribute>
                         <name>Receivers</name>
@@ -184,50 +219,23 @@ Above license gives you the right to use and redistribute the NETN FOM Module (X
                         <sharing>PublishSubscribe</sharing>
                         <transportation>HLAreliable</transportation>
                         <order>Receive</order>
-                        <semantics>Required</semantics>
-                    </attribute>
-                </objectClass>
-                <objectClass>
-                    <name>IncomingConnections</name>
-                    <sharing>PublishSubscribe</sharing>
-                    <semantics></semantics>
-                    <attribute>
-                        <name>ReceiverId</name>
-                        <dataType>UuidArrayOfHLAbyte16</dataType>
-                        <updateType>Static</updateType>
-                        <updateCondition>NA</updateCondition>
-                        <ownership>NoTransfer</ownership>
-                        <sharing>PublishSubscribe</sharing>
-                        <transportation>HLAreliable</transportation>
-                        <order>Receive</order>
-                        <semantics>Required</semantics>
-                    </attribute>
-                    <attribute>
-                        <name>Connections</name>
-                        <dataType>IncomingConnectionArray</dataType>
-                        <updateType>Conditional</updateType>
-                        <updateCondition>OnChange</updateCondition>
-                        <ownership>NoTransfer</ownership>
-                        <sharing>PublishSubscribe</sharing>
-                        <transportation>HLAreliable</transportation>
-                        <order>Receive</order>
-                        <semantics>Required</semantics>
+                        <semantics>Required. Characteristics of the connections to individual receiving entities.</semantics>
                     </attribute>
                 </objectClass>
                 <objectClass>
                     <name>PhysicalNetwork</name>
                     <sharing>PublishSubscribe</sharing>
-                    <semantics>Optional</semantics>
+                    <semantics>This object class represents type-specific parameters/constraints for a physical network. Physical networks are simulated by LinkState objects and do not require that an instance of PhysicalNetwork exist in the federation.</semantics>
                     <attribute>
-                        <name>PhysicalNetworkId</name>
-                        <dataType>HLAASCIIstring</dataType>
+                        <name>UniqueName</name>
+                        <dataType>Text64</dataType>
                         <updateType>Static</updateType>
                         <updateCondition>NA</updateCondition>
                         <ownership>NoTransfer</ownership>
                         <sharing>PublishSubscribe</sharing>
                         <transportation>HLAreliable</transportation>
                         <order>Receive</order>
-                        <semantics>Required</semantics>
+                        <semantics>Required. Unique physical network name. Uniqueness in the context of physical networks.</semantics>
                     </attribute>
                     <attribute>
                         <name>Description</name>
@@ -238,23 +246,23 @@ Above license gives you the right to use and redistribute the NETN FOM Module (X
                         <sharing>PublishSubscribe</sharing>
                         <transportation>HLAreliable</transportation>
                         <order>Receive</order>
-                        <semantics>Required</semantics>
+                        <semantics>Required. Characteristics of the physical network.</semantics>
                     </attribute>
                 </objectClass>
                 <objectClass>
                     <name>LinkStates</name>
                     <sharing>PublishSubscribe</sharing>
-                    <semantics></semantics>
+                    <semantics>Representation of the state of links in a physical network.</semantics>
                     <attribute>
-                        <name>PhysicalNetworkId</name>
-                        <dataType>HLAASCIIstring</dataType>
+                        <name>PhysicalNetworkName</name>
+                        <dataType>Text64</dataType>
                         <updateType>Static</updateType>
                         <updateCondition>NA</updateCondition>
                         <ownership>NoTransfer</ownership>
                         <sharing>PublishSubscribe</sharing>
                         <transportation>HLAreliable</transportation>
                         <order>Receive</order>
-                        <semantics></semantics>
+                        <semantics>Required: Reference to physical network by its unique name.</semantics>
                     </attribute>
                     <attribute>
                         <name>Links</name>
@@ -265,17 +273,12 @@ Above license gives you the right to use and redistribute the NETN FOM Module (X
                         <sharing>PublishSubscribe</sharing>
                         <transportation>HLAreliable</transportation>
                         <order>Receive</order>
-                        <semantics></semantics>
+                        <semantics>Required: Status of a set of physical network links.</semantics>
                     </attribute>
                 </objectClass>
             </objectClass>
         </objectClass>
     </objects>
-    <interactions>
-        <interactionClass>
-            <name>HLAinteractionRoot</name>
-        </interactionClass>
-    </interactions>
     <dimensions/>
     <synchronizations/>
     <transportations/>
@@ -284,51 +287,19 @@ Above license gives you the right to use and redistribute the NETN FOM Module (X
         <basicDataRepresentations/>
         <simpleDataTypes>
             <simpleData>
-                <name>TimeMillisecondsFloat32</name>
-                <representation>HLAfloat32BE</representation>
-                <units>Milliseconds (ms)</units>
-                <resolution>NA</resolution>
-                <accuracy>NA</accuracy>
-                <semantics></semantics>
-            </simpleData>
-            <simpleData>
-                <name>Integer16</name>
-                <representation>HLAinteger16BE</representation>
-                <units>NA</units>
-                <resolution>1</resolution>
-                <accuracy>perfect</accuracy>
-                <semantics></semantics>
-            </simpleData>
-            <simpleData>
-                <name>Integer32</name>
-                <representation>HLAinteger32BE</representation>
-                <units>NA</units>
-                <resolution>1</resolution>
-                <accuracy>perfect</accuracy>
-                <semantics></semantics>
-            </simpleData>
-            <simpleData>
-                <name>MeterFloat32</name>
-                <representation>HLAfloat32BE</representation>
-                <units>NA</units>
-                <resolution>NA</resolution>
-                <accuracy>NA</accuracy>
-                <semantics></semantics>
-            </simpleData>
-            <simpleData>
                 <name>BitsPerSecond</name>
                 <representation>HLAinteger64BE</representation>
                 <units>NA</units>
                 <resolution>1</resolution>
                 <accuracy>perfect</accuracy>
-                <semantics></semantics>
+                <semantics>Data transfer rate.</semantics>
             </simpleData>
         </simpleDataTypes>
         <enumeratedDataTypes>
             <enumeratedData>
-                <name>NetworkTypeEnum</name>
+                <name>PhysicalNetworkTypeEnum</name>
                 <representation>HLAoctet</representation>
-                <semantics></semantics>
+                <semantics>The type of a physical network.</semantics>
                 <enumerator>
                     <name>NoNetwork</name>
                     <value>0</value>
@@ -355,9 +326,9 @@ Above license gives you the right to use and redistribute the NETN FOM Module (X
                 </enumerator>
             </enumeratedData>
             <enumeratedData>
-                <name>CommunicationNetTypeEnum</name>
+                <name>CommunicationNetworkTypeEnum</name>
                 <representation>HLAoctet</representation>
-                <semantics></semantics>
+                <semantics>The type of a communication network.</semantics>
                 <enumerator>
                     <name>OTHER</name>
                     <value>0</value>
@@ -382,7 +353,20 @@ Above license gives you the right to use and redistribute the NETN FOM Module (X
             <enumeratedData>
                 <name>CommunicationServiceTypeEnum</name>
                 <representation>HLAoctet</representation>
-                <semantics></semantics>
+                <semantics>The type of service used on a communication network. 
+ 
+Service types as defined in MSDL. 
+ 
+DATTRF: Data transfer 
+FAX: Facsimile 
+IFF: Identify Friend or Foe 
+IMAGE: Image 
+MCI: Multilateral Interoperability Programme (MIP) Common Interface Service 
+MHS: Message Handling Service 
+TDL: Tactical Data Link 
+VIDSVC: Video Service 
+VOCSVC:Voice Service 
+NOS: Not Otherwise Specified</semantics>
                 <enumerator>
                     <name>DATTRF</name>
                     <value notes="netn-com_3">0</value>
@@ -425,9 +409,9 @@ Above license gives you the right to use and redistribute the NETN FOM Module (X
                 </enumerator>
             </enumeratedData>
             <enumeratedData>
-                <name>RequestConnectionTypeEnum</name>
+                <name>ConnectionTypeEnum</name>
                 <representation>HLAoctet</representation>
-                <semantics></semantics>
+                <semantics>The type of a connection.</semantics>
                 <enumerator>
                     <name>BroadcastTransceiver</name>
                     <value>0</value>
@@ -464,92 +448,85 @@ Above license gives you the right to use and redistribute the NETN FOM Module (X
                 <dataType>LinkStatusStruct</dataType>
                 <cardinality>Dynamic</cardinality>
                 <encoding>HLAvariableArray</encoding>
-                <semantics></semantics>
+                <semantics>The status of physical network links.</semantics>
+            </arrayData>
+            <arrayData>
+                <name>Text64</name>
+                <dataType>HLAunicodeChar</dataType>
+                <cardinality>[0..64]</cardinality>
+                <encoding>HLAvariableArray</encoding>
+                <semantics>Text of max length 64 characters.</semantics>
             </arrayData>
             <arrayData>
                 <name>NetworkDeviceArray</name>
                 <dataType>NetworkDeviceStruct</dataType>
                 <cardinality>Dynamic</cardinality>
                 <encoding>HLAvariableArray</encoding>
-                <semantics></semantics>
+                <semantics>A set of nework devices.</semantics>
             </arrayData>
             <arrayData>
                 <name>RequestedConnectionArray</name>
                 <dataType>RequestedConnection</dataType>
                 <cardinality>Dynamic</cardinality>
                 <encoding>HLAvariableArray</encoding>
-                <semantics></semantics>
+                <semantics>Characterisation of a set of requested connections.</semantics>
             </arrayData>
             <arrayData>
-                <name>TextIdentifierArray64Array</name>
-                <dataType>TextIdentifierArray64</dataType>
+                <name>CommunicationNetworkArray</name>
+                <dataType>Text64</dataType>
                 <cardinality>Dynamic</cardinality>
                 <encoding>HLAvariableArray</encoding>
-                <semantics></semantics>
-            </arrayData>
-            <arrayData>
-                <name>UuidArray</name>
-                <dataType>UuidArrayOfHLAbyte16</dataType>
-                <cardinality>Dynamic</cardinality>
-                <encoding>HLAvariableArray</encoding>
-                <semantics></semantics>
-            </arrayData>
-            <arrayData>
-                <name>TextIdentifierArray64</name>
-                <dataType>HLAASCIIchar</dataType>
-                <cardinality>[0..64]</cardinality>
-                <encoding>HLAvariableArray</encoding>
-                <semantics></semantics>
+                <semantics>References to a set of communication networks.</semantics>
             </arrayData>
             <arrayData>
                 <name>ConnectionReceiverArray</name>
                 <dataType>ConnectionReceiverStruct</dataType>
                 <cardinality>Dynamic</cardinality>
                 <encoding>HLAvariableArray</encoding>
-                <semantics></semantics>
+                <semantics>Connection characteristics for a number of receivers.</semantics>
             </arrayData>
             <arrayData>
                 <name>IncomingConnectionArray</name>
                 <dataType>IncomingConnectionStruct</dataType>
                 <cardinality>Dynamic</cardinality>
                 <encoding>HLAvariableArray</encoding>
-                <semantics>Required</semantics>
+                <semantics>A set of incoming connections.</semantics>
             </arrayData>
         </arrayDataTypes>
         <fixedRecordDataTypes>
             <fixedRecordData>
                 <name>LinkStatusStruct</name>
                 <encoding>HLAfixedRecord</encoding>
-                <semantics></semantics>
+                <semantics>Status of a physcial network link.</semantics>
                 <field>
                     <name>TransmitterDeviceId</name>
-                    <dataType>UuidArrayOfHLAbyte16</dataType>
-                    <semantics>Required</semantics>
+                    <dataType>UUID</dataType>
+                    <semantics>Reference to Transmitting network device.</semantics>
                 </field>
                 <field>
                     <name>ReceiverDeviceId</name>
-                    <dataType>UuidArrayOfHLAbyte16</dataType>
-                    <semantics>Required</semantics>
+                    <dataType>UUID</dataType>
+                    <semantics>Reference to Receiving network device.</semantics>
                 </field>
                 <field>
                     <name>Latency</name>
-                    <dataType>TimeMillisecondsFloat32</dataType>
-                    <semantics></semantics>
+                    <dataType>TimeMillisecondUnsignedInteger32</dataType>
+                    <semantics>Delay in data delivery.</semantics>
                 </field>
                 <field>
                     <name>Bandwidth</name>
                     <dataType>BitsPerSecond</dataType>
-                    <semantics></semantics>
+                    <semantics>Amount of data per time unit.</semantics>
                 </field>
                 <field>
                     <name>Reliability</name>
                     <dataType>PercentFloat64</dataType>
-                    <semantics>Required</semantics>
+                    <semantics>Reliability of connection in terms of availability. 100% = always available and no connection loss.</semantics>
                 </field>
                 <field>
                     <name>IsBidirectional</name>
                     <dataType>HLAboolean</dataType>
-                    <semantics>Optional, default is false</semantics>
+                    <semantics>True is link is bi-directional. By default this value should be set to false.</semantics>
                 </field>
             </fixedRecordData>
             <fixedRecordData>
@@ -558,324 +535,227 @@ Above license gives you the right to use and redistribute the NETN FOM Module (X
                 <semantics>Describes the type and capability of a network device. Each device must have at least a transmitter (TX) or receiver (RX). Transceivers should define both.</semantics>
                 <field>
                     <name>NetworkDeviceId</name>
-                    <dataType>UuidArrayOfHLAbyte16</dataType>
-                    <semantics>Required</semantics>
+                    <dataType>UUID</dataType>
+                    <semantics>Unique identifier for network device.</semantics>
                 </field>
                 <field notes="netn-com_1">
-                    <name>CommunicationNetworkIds</name>
-                    <dataType>TextIdentifierArray64Array</dataType>
-                    <semantics>Required</semantics>
+                    <name>CommunicationNetworks</name>
+                    <dataType>CommunicationNetworkArray</dataType>
+                    <semantics>Reference to all communication networks this device is used for.</semantics>
                 </field>
                 <field>
-                    <name>PhysicalNetworkId</name>
-                    <dataType>HLAASCIIstring</dataType>
-                    <semantics>Optional</semantics>
+                    <name>PhysicalNetworkName</name>
+                    <dataType>Text64</dataType>
+                    <semantics>Reference to physical network this device is connected to.</semantics>
                 </field>
                 <field>
                     <name>TX</name>
                     <dataType>NetworkDeviceTransmitterCharacteristicsVariant</dataType>
-                    <semantics>Optional</semantics>
+                    <semantics>Transmitter characteristics of the network device.</semantics>
                 </field>
                 <field>
                     <name>RX</name>
                     <dataType>NetworkDeviceReceiverCharacteristicsVariant</dataType>
-                    <semantics>Optional</semantics>
+                    <semantics>Receiver characteristics of the network device.</semantics>
                 </field>
                 <field>
                     <name>IsRelay</name>
                     <dataType>HLAboolean</dataType>
-                    <semantics>Optional, defaults to true</semantics>
+                    <semantics>True if this network device acts as a relay. By default this value should be set to true.</semantics>
                 </field>
             </fixedRecordData>
             <fixedRecordData>
                 <name>PhysicalGenericNetworkStruct</name>
                 <encoding>HLAfixedRecord</encoding>
-                <semantics></semantics>
+                <semantics>Characteristics of a generic physical network.</semantics>
                 <field>
                     <name>MaxHopCount</name>
                     <dataType>Integer32</dataType>
-                    <semantics></semantics>
+                    <semantics>The maximum nuber of hops allowed in the physical network.</semantics>
                 </field>
                 <field>
                     <name>DefaultMaxLinkRange</name>
                     <dataType>MeterFloat32</dataType>
-                    <semantics></semantics>
+                    <semantics>The maximum distance between sending and receiving entities in a physical network link.</semantics>
                 </field>
                 <field>
                     <name>Latency</name>
-                    <dataType>TimeMillisecondsFloat32</dataType>
-                    <semantics></semantics>
+                    <dataType>TimeMillisecondUnsignedInteger32</dataType>
+                    <semantics>Delay in data delivery.</semantics>
                 </field>
                 <field>
                     <name>Bandwidth</name>
                     <dataType>BitsPerSecond</dataType>
-                    <semantics></semantics>
+                    <semantics>Amount of data per time unit.</semantics>
                 </field>
                 <field>
                     <name>Reliability</name>
                     <dataType>PercentFloat64</dataType>
-                    <semantics></semantics>
+                    <semantics>Reliability of connection in terms of availability. 100% = always available and no connection loss.</semantics>
                 </field>
-            </fixedRecordData>
-            <fixedRecordData>
-                <name>PhysicalRadioNetworkStruct</name>
-                <encoding>HLAfixedRecord</encoding>
-                <semantics></semantics>
-            </fixedRecordData>
-            <fixedRecordData>
-                <name>PhysicalCableNetworkStruct</name>
-                <encoding>HLAfixedRecord</encoding>
-                <semantics></semantics>
-                <field>
-                    <name>TTL</name>
-                    <dataType>Integer16</dataType>
-                    <semantics></semantics>
-                </field>
-            </fixedRecordData>
-            <fixedRecordData>
-                <name>PhysicalSoundNetworkStruct</name>
-                <encoding>HLAfixedRecord</encoding>
-                <semantics></semantics>
-            </fixedRecordData>
-            <fixedRecordData>
-                <name>PhysicalLaserNetworkStruct</name>
-                <encoding>HLAfixedRecord</encoding>
-                <semantics></semantics>
             </fixedRecordData>
             <fixedRecordData>
                 <name>RequestedConnection</name>
                 <encoding>HLAfixedRecord</encoding>
-                <semantics></semantics>
+                <semantics>Characterisation of a requested connection.</semantics>
                 <field>
-                    <name>CommunicationNetworkId</name>
-                    <dataType>TextIdentifierArray64</dataType>
-                    <semantics>Required</semantics>
+                    <name>CommunicationNetworkName</name>
+                    <dataType>Text64</dataType>
+                    <semantics>Reference to the communication network which the requested connection should belong to.</semantics>
                 </field>
                 <field>
                     <name>RequestedConnectionType</name>
-                    <dataType>RequestConnectionTypeEnum</dataType>
-                    <semantics>Required</semantics>
+                    <dataType>ConnectionTypeEnum</dataType>
+                    <semantics>The type of connection requested.</semantics>
                 </field>
                 <field>
                     <name>ConnectionId</name>
-                    <dataType>UuidArrayOfHLAbyte16</dataType>
-                    <semantics>Optional</semantics>
+                    <dataType>UUID</dataType>
+                    <semantics>Requested Id for the connection. If no Id is requested the value of this field should be all zeros.</semantics>
                 </field>
                 <field notes="netn-com_14">
-                    <name>DestinationEntitytIds</name>
-                    <dataType>UuidArray</dataType>
-                    <semantics>Optional</semantics>
+                    <name>DestinationEntityIds</name>
+                    <dataType>ArrayOfUuid</dataType>
+                    <semantics>List of entities intended as destinations for this requested connection. Leave empty in case of broadcasting or multicasting.</semantics>
                 </field>
                 <field notes="netn-com_15">
                     <name>NetworkDeviceId</name>
-                    <dataType>UuidArrayOfHLAbyte16</dataType>
-                    <semantics>Optional</semantics>
+                    <dataType>UUID</dataType>
+                    <semantics>Reference to the Network Device for the requested connection. If no specific network device is requested the value of this field should be all zeros.</semantics>
                 </field>
             </fixedRecordData>
             <fixedRecordData>
                 <name>ConnectionReceiverStruct</name>
                 <encoding>HLAfixedRecord</encoding>
-                <semantics></semantics>
+                <semantics>Characteristics of a connection to a receiver.</semantics>
                 <field>
-                    <name>ReceiverId</name>
-                    <dataType>UuidArrayOfHLAbyte16</dataType>
-                    <semantics>Required</semantics>
+                    <name>ReceiverEntityId</name>
+                    <dataType>UUID</dataType>
+                    <semantics>Reference to a simulated entity receiving data through the connection.</semantics>
                 </field>
                 <field>
                     <name>Latency</name>
-                    <dataType>TimeMillisecondsFloat32</dataType>
-                    <semantics>Required</semantics>
+                    <dataType>TimeMillisecondUnsignedInteger32</dataType>
+                    <semantics>Latency in reaching the receiving entity.</semantics>
                 </field>
                 <field>
                     <name>Bandwith</name>
                     <dataType>BitsPerSecond</dataType>
-                    <semantics>Required</semantics>
+                    <semantics>The bandwith of the connection to the receiving entity,</semantics>
                 </field>
                 <field>
                     <name>Reliability</name>
                     <dataType>PercentFloat64</dataType>
-                    <semantics>Required</semantics>
+                    <semantics>The reliability of the connection to the receiving entity.</semantics>
                 </field>
                 <field>
                     <name>HopCount</name>
                     <dataType>Integer16</dataType>
-                    <semantics>Optional, defaults to 0 (=not specified)</semantics>
+                    <semantics>Number of hops required to reach the receiver. If set to 0 = not specified or calculated.</semantics>
                 </field>
             </fixedRecordData>
             <fixedRecordData>
                 <name>NetworkDeviceGenericTransmitterCharacteristicsStruct</name>
                 <encoding>HLAfixedRecord</encoding>
-                <semantics></semantics>
+                <semantics>Generic description of network device transmitter.</semantics>
                 <field>
                     <name>MaxLinkRange</name>
                     <dataType>MeterFloat32</dataType>
-                    <semantics>Optional, defaults to 0 (=use default value from physical network)</semantics>
+                    <semantics>Range limit for the link in meters. By default this value should be set to zero. If zero the max link range is based on the default value from the associated physical network.</semantics>
                 </field>
             </fixedRecordData>
             <fixedRecordData>
                 <name>IncomingConnectionStruct</name>
                 <encoding>HLAfixedRecord</encoding>
-                <semantics></semantics>
+                <semantics>Characteristics of a specific incoming connection.</semantics>
                 <field>
-                    <name>CommunicationNetworkId</name>
-                    <dataType>TextIdentifierArray64</dataType>
-                    <semantics>Required</semantics>
+                    <name>CommunicationNetworkName</name>
+                    <dataType>Text64</dataType>
+                    <semantics>Reference to the communication network associated with the incoming connection.</semantics>
+                </field>
+                <field>
+                    <name>SenderEntityId</name>
+                    <dataType>UUID</dataType>
+                    <semantics>Reference by UUID to the simulated entity sending on the connection.</semantics>
                 </field>
                 <field>
                     <name>Latency</name>
-                    <dataType>TimeMillisecondsFloat32</dataType>
-                    <semantics></semantics>
+                    <dataType>TimeMillisecondUnsignedInteger32</dataType>
+                    <semantics>Delay in data delivery.</semantics>
                 </field>
                 <field>
                     <name>Bandwidth</name>
                     <dataType>BitsPerSecond</dataType>
-                    <semantics></semantics>
+                    <semantics>Amount of data per time unit.</semantics>
                 </field>
                 <field>
                     <name>Reliability</name>
                     <dataType>PercentFloat64</dataType>
-                    <semantics></semantics>
+                    <semantics>Reliability of connection in terms of availability. 100% = always available and no connection loss.</semantics>
                 </field>
                 <field>
                     <name>HopCount</name>
                     <dataType>Integer16</dataType>
-                    <semantics></semantics>
-                </field>
-                <field>
-                    <name>SenderId</name>
-                    <dataType>UuidArrayOfHLAbyte16</dataType>
-                    <semantics>Required</semantics>
+                    <semantics>The number of hops in physical network required for sender entity to reach receiver entity.</semantics>
                 </field>
             </fixedRecordData>
             <fixedRecordData>
                 <name>NetworkDeviceEmptyCharactersticsStruct</name>
                 <encoding>HLAfixedRecord</encoding>
-                <semantics></semantics>
+                <semantics>Empty placeholder for future network device characteristics.</semantics>
             </fixedRecordData>
         </fixedRecordDataTypes>
         <variantRecordDataTypes>
             <variantRecordData>
                 <name>NetworkDeviceTransmitterCharacteristicsVariant</name>
                 <discriminant>Type</discriminant>
-                <dataType>NetworkTypeEnum</dataType>
+                <dataType>PhysicalNetworkTypeEnum</dataType>
                 <alternative>
                     <enumerator>NoNetwork</enumerator>
                     <name>NoNetwork</name>
                     <dataType>NetworkDeviceEmptyCharactersticsStruct</dataType>
-                    <semantics></semantics>
+                    <semantics>No Network</semantics>
                 </alternative>
                 <alternative>
                     <enumerator>Generic</enumerator>
                     <name>Generic</name>
                     <dataType>NetworkDeviceGenericTransmitterCharacteristicsStruct</dataType>
-                    <semantics></semantics>
-                </alternative>
-                <alternative>
-                    <enumerator>Radio</enumerator>
-                    <name>Radio</name>
-                    <dataType>NetworkDeviceEmptyCharactersticsStruct</dataType>
-                    <semantics></semantics>
-                </alternative>
-                <alternative>
-                    <enumerator>Cable</enumerator>
-                    <name>Cable</name>
-                    <dataType>NetworkDeviceEmptyCharactersticsStruct</dataType>
-                    <semantics></semantics>
-                </alternative>
-                <alternative>
-                    <enumerator>Laser</enumerator>
-                    <name>Laser</name>
-                    <dataType>NetworkDeviceEmptyCharactersticsStruct</dataType>
-                    <semantics></semantics>
-                </alternative>
-                <alternative>
-                    <enumerator>Sound</enumerator>
-                    <name>Sound</name>
-                    <dataType>NetworkDeviceEmptyCharactersticsStruct</dataType>
-                    <semantics></semantics>
+                    <semantics>A generic description of transmitter characteristics.</semantics>
                 </alternative>
                 <encoding>HLAvariantRecord</encoding>
-                <semantics></semantics>
+                <semantics>Characteristics of network device transmitter.</semantics>
             </variantRecordData>
             <variantRecordData>
                 <name>NetworkDeviceReceiverCharacteristicsVariant</name>
                 <discriminant>Type</discriminant>
-                <dataType>NetworkTypeEnum</dataType>
+                <dataType>PhysicalNetworkTypeEnum</dataType>
                 <alternative>
                     <enumerator>NoNetwork</enumerator>
                     <name>NoNetwork</name>
                     <dataType>NetworkDeviceEmptyCharactersticsStruct</dataType>
-                    <semantics></semantics>
+                    <semantics>No network.</semantics>
                 </alternative>
                 <alternative>
                     <enumerator>Generic</enumerator>
                     <name>Generic</name>
                     <dataType>NetworkDeviceEmptyCharactersticsStruct</dataType>
-                    <semantics></semantics>
-                </alternative>
-                <alternative>
-                    <enumerator>Radio</enumerator>
-                    <name>Radio</name>
-                    <dataType>NetworkDeviceEmptyCharactersticsStruct</dataType>
-                    <semantics></semantics>
-                </alternative>
-                <alternative>
-                    <enumerator>Cable</enumerator>
-                    <name>Cable</name>
-                    <dataType>NetworkDeviceEmptyCharactersticsStruct</dataType>
-                    <semantics></semantics>
-                </alternative>
-                <alternative>
-                    <enumerator>Laser</enumerator>
-                    <name>Laser</name>
-                    <dataType>NetworkDeviceEmptyCharactersticsStruct</dataType>
-                    <semantics></semantics>
-                </alternative>
-                <alternative>
-                    <enumerator>Sound</enumerator>
-                    <name>Sound</name>
-                    <dataType>NetworkDeviceEmptyCharactersticsStruct</dataType>
-                    <semantics></semantics>
+                    <semantics>NA</semantics>
                 </alternative>
                 <encoding>HLAvariantRecord</encoding>
-                <semantics></semantics>
+                <semantics>Characteristics of a network device receiver.</semantics>
             </variantRecordData>
             <variantRecordData>
                 <name>PhysicalNetworkDescriptionVariant</name>
                 <discriminant>Type</discriminant>
-                <dataType>NetworkTypeEnum</dataType>
+                <dataType>PhysicalNetworkTypeEnum</dataType>
                 <alternative>
                     <enumerator>Generic</enumerator>
                     <name>Generic</name>
                     <dataType>PhysicalGenericNetworkStruct</dataType>
-                    <semantics></semantics>
-                </alternative>
-                <alternative>
-                    <enumerator>Radio</enumerator>
-                    <name>Radio</name>
-                    <dataType>PhysicalRadioNetworkStruct</dataType>
-                    <semantics></semantics>
-                </alternative>
-                <alternative>
-                    <enumerator>Cable</enumerator>
-                    <name>Cable</name>
-                    <dataType>PhysicalCableNetworkStruct</dataType>
-                    <semantics></semantics>
-                </alternative>
-                <alternative>
-                    <enumerator>Laser</enumerator>
-                    <name>Laser</name>
-                    <dataType>PhysicalLaserNetworkStruct</dataType>
-                    <semantics></semantics>
-                </alternative>
-                <alternative>
-                    <enumerator>Sound</enumerator>
-                    <name>Sound</name>
-                    <dataType>PhysicalSoundNetworkStruct</dataType>
-                    <semantics></semantics>
+                    <semantics>Characteristics of a generic physical network.</semantics>
                 </alternative>
                 <encoding>HLAvariantRecord</encoding>
-                <semantics></semantics>
+                <semantics>Characteristics of physical networks depending on their type.</semantics>
             </variantRecordData>
         </variantRecordDataTypes>
     </dataTypes>
