@@ -78,7 +78,7 @@ Depending on the type of the requested connection the use of the associated netw
   * The DestinationEntityArray is ignored.
 * **Broadcast Receiver**:
   * If RX is specified for a network device the connections listens to all incoming messages. 
-  * The DestinationEntityArray is ignored. [TBD: could this reasonably used for optimization?]
+  * The DestinationEntityArray is ignored.
 * **Peer-To-Peer**:
   * If TX is specified for a network device connections are established to all reachable specified destination entities.
   * If RX is specified for a network device the connections listens to all incoming messages which are sent to the own entity.
@@ -87,7 +87,7 @@ Depending on the type of the requested connection the use of the associated netw
   * It is assumed that messages are transmitted sequentially to all receivers defined as a destination. (Be aware: this does not include intercepting devices)
   * Any max. hop count / TTL parameter of the physical network is ignored.
 * **Unidirectional**: Like Peer-To-Peer but no connection back to the source with the same route is expected. 
-* **Mutlicast**:
+* **Multicast**:
   * The connection logic is similar to unidirectional connections.
   * Data is sent to all receivers simultaneously.
   * The DestinationEntityArray is ignored.
