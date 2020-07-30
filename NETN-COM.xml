@@ -305,20 +305,24 @@ If the referenced entity does not exist in the federation, the location of the n
                     <value>0</value>
                 </enumerator>
                 <enumerator>
-                    <name>Generic</name>
+                    <name>Undefined</name>
                     <value>1</value>
                 </enumerator>
                 <enumerator>
-                    <name>Radio</name>
+                    <name>Generic</name>
                     <value>2</value>
                 </enumerator>
                 <enumerator>
-                    <name>Cable</name>
+                    <name>Radio</name>
                     <value>3</value>
                 </enumerator>
                 <enumerator>
-                    <name>Laser</name>
+                    <name>Cable</name>
                     <value>4</value>
+                </enumerator>
+                <enumerator>
+                    <name>Laser</name>
+                    <value>5</value>
                 </enumerator>
             </enumeratedData>
             <enumeratedData>
@@ -534,6 +538,11 @@ NOS: Not Otherwise Specified</semantics>
                     <dataType>UuidArrayOfHLAbyte16</dataType>
                     <semantics>Unique identifier for network device.</semantics>
                 </field>
+                <field>
+                    <name>NetworkDeviceModel</name>
+                    <dataType>Text64</dataType>
+                    <semantics>Optional name of the model of network device (e.g. a radio model name).</semantics>
+                </field>
                 <field notes="netn-com_1">
                     <name>CommunicationNetworks</name>
                     <dataType>CommunicationNetworkArray</dataType>
@@ -700,6 +709,11 @@ NOS: Not Otherwise Specified</semantics>
                 <encoding>HLAfixedRecord</encoding>
                 <semantics>Empty placeholder for future network device characteristics.</semantics>
             </fixedRecordData>
+            <fixedRecordData>
+                <name>PhysicalUndefinedNetworkStruct</name>
+                <encoding>HLAfixedRecord</encoding>
+                <semantics>(Empty) Characteristics of an undefined physical network.</semantics>
+            </fixedRecordData>
         </fixedRecordDataTypes>
         <variantRecordDataTypes>
             <variantRecordData>
@@ -711,6 +725,12 @@ NOS: Not Otherwise Specified</semantics>
                     <name>NoNetwork</name>
                     <dataType>NetworkDeviceEmptyCharactersticsStruct</dataType>
                     <semantics>No Network</semantics>
+                </alternative>
+                <alternative>
+                    <enumerator>Undefined</enumerator>
+                    <name>Undefined</name>
+                    <dataType>NetworkDeviceEmptyCharactersticsStruct</dataType>
+                    <semantics></semantics>
                 </alternative>
                 <alternative>
                     <enumerator>Generic</enumerator>
@@ -732,6 +752,12 @@ NOS: Not Otherwise Specified</semantics>
                     <semantics>No network.</semantics>
                 </alternative>
                 <alternative>
+                    <enumerator>Undefined</enumerator>
+                    <name>Undefined</name>
+                    <dataType>NetworkDeviceEmptyCharactersticsStruct</dataType>
+                    <semantics></semantics>
+                </alternative>
+                <alternative>
                     <enumerator>Generic</enumerator>
                     <name>Generic</name>
                     <dataType>NetworkDeviceEmptyCharactersticsStruct</dataType>
@@ -744,6 +770,12 @@ NOS: Not Otherwise Specified</semantics>
                 <name>PhysicalNetworkDescriptionVariant</name>
                 <discriminant>Type</discriminant>
                 <dataType>PhysicalNetworkTypeEnum</dataType>
+                <alternative>
+                    <enumerator>Undefined</enumerator>
+                    <name>Undefined</name>
+                    <dataType>PhysicalUndefinedNetworkStruct</dataType>
+                    <semantics>(Empty) Characteristics of an undefined physical network.</semantics>
+                </alternative>
                 <alternative>
                     <enumerator>Generic</enumerator>
                     <name>Generic</name>
