@@ -184,7 +184,7 @@ LinkStates: UniqueId(NETN-BASE)
  
  
 LinkStates --> "1" PhysicalNetwork : PhysicalNetwork 
-LinkStates --> "1" LinkStatus : Link 
+LinkStates --> "0..*" LinkStatus : Link 
  
  
 LinkStatus:TransmitterDevice 
